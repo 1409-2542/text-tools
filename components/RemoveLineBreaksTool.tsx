@@ -297,10 +297,10 @@ This text hastoo many linebreaks that makeit hard to read.</div>
           
           <RelatedTools 
             tools={[
-              { href: "/tools/remove-empty-lines", title: "Remove Empty Lines", description: "Delete blank lines from your text" },
-              { href: "/tools/remove-duplicate-lines", title: "Remove Duplicate Lines", description: "Clean your text by removing duplicate lines" },
-              { href: "/tools/text-compactor", title: "Text Compactor", description: "Compact text by removing extra spaces and line breaks" },
-              { href: "/tools/whitespace-remover", title: "Whitespace Remover", description: "Remove all unnecessary whitespace from text" }
+              { href: "/remove-empty-lines", title: "Remove Empty Lines", description: "Delete blank lines from your text" },
+              { href: "/remove-duplicate-lines", title: "Remove Duplicate Lines", description: "Clean your text by removing duplicate lines" },
+              { href: "/text-compactor", title: "Text Compactor", description: "Compact text by removing extra spaces and line breaks" },
+              { href: "/whitespace-remover", title: "Whitespace Remover", description: "Remove all unnecessary whitespace from text" }
             ]}
           />
           
