@@ -52,8 +52,8 @@ export default function RemoveLineBreaksPage() {
         <Breadcrumbs 
           items={[
             { label: 'Home', href: '/' },
-            { label: 'Text Tools', href: '/tools' },
-            { label: 'Remove Line Breaks', href: '/tools/remove-line-breaks' }
+            { label: 'Text Tools', href: '/#tools' },
+            { label: 'Remove Line Breaks', href: '/remove-line-breaks' }
           ]}
         />
       </div>

@@ -1,0 +1,15 @@
+.adUnit {
+  background-color: #f0f0f0;
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  text-align: center;
+  min-height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed #ccc;
+}
+
+.adUnit p {
+  color: #999;
+}

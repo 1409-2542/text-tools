@@ -52,8 +52,8 @@ export default function RemoveDuplicateLinesPage() {
         <Breadcrumbs 
           items={[
             { label: 'Home', href: '/' },
-            { label: 'Text Tools', href: '/tools' },
-            { label: 'Remove Duplicate Lines', href: '/tools/remove-duplicate-lines' }
+            { label: 'Text Tools', href: '/#tools' },
+            { label: 'Remove Duplicate Lines', href: '/remove-duplicate-lines' }
           ]}
         />
       </div>

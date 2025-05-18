@@ -45,7 +45,7 @@ export default function Footer() {
           </div>
         </div>
         <div className={styles.copyright}>
-          <p>&copy; {new Date().getFullYear()} TextToolsPro. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} TextToolsPro. All rights reserved. Disclaimer: We aim for accuracy, but cannot guarantee our tools are error-free.</p>
         </div>
       </div>
     </footer>

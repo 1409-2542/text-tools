@@ -1,0 +1,25 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.pageNumbers {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  color: var(--text-color);
+  background-color: var(--light-color);
+  box-shadow: var(--box-shadow);
+}
+
+.pageNumbers.current {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.pageNumbers:hover:not(.current) {
+  background-color: #f0f0f0;
+}

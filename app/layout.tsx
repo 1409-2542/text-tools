@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import Script from 'next/script';
+
 
 export const metadata: Metadata = {
   title: 'TextToolsPro - Free Online Text Processing Tools',
@@ -47,6 +49,22 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-G7DWPGCD7N"
+        />
+        <Script
+          id="gtag-init"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-G7DWPGCD7N');
+            `,
+          }}
+        />        
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
         <script
           type="application/ld+json"
