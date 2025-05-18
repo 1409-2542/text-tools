@@ -35,7 +35,7 @@ const blogPosts = [
   },
   {
     id: 5,
-    title: "Content Marketing Trends You Can't Afford to Ignore in 2023",
+    title: "Content Marketing Trends You Can't Afford to Ignore in 2025",
     excerpt: "Stay ahead of the competition with these emerging content marketing trends that are shaping the digital landscape this year.",
     category: "Marketing",
     slug: "content-marketing-trends"
