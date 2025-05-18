@@ -9,13 +9,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Case Converter Tool - Change Text Case Online | TextToolsPro',
     description: 'Free online tool to convert text between uppercase, lowercase, title case, sentence case and more.',
-    url: 'https://www.text-tools-pro.com/case-converter',
-    images: 'https://www.text-tools-pro.com/images/case-converter-og.jpg',
+    url: 'https://www.texttoolspro.com/case-converter',
+    images: 'https://www.texttoolspro.com/images/case-converter-og.jpg',
   },
   twitter: {
     title: 'Case Converter Tool - Change Text Case Online | TextToolsPro',
     description: 'Free online tool to convert text between uppercase, lowercase, title case, sentence case and more.',
-    images: 'https://www.text-tools-pro.com/images/case-converter-twitter.jpg',
+    images: 'https://www.texttoolspro.com/images/case-converter-twitter.jpg',
   },
   alternates: {
     canonical: 'https://www.text-tools-pro.com/case-converter'
@@ -27,7 +27,7 @@ export default function CaseConverterPage() {
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "Case Converter Tool",
-    "url": "https://www.text-tools-pro.com/case-converter",
+    "url": "https://www.texttoolspro.com/case-converter",
     "description": "Free online tool to convert text between different cases (uppercase, lowercase, title case, etc.)",
     "applicationCategory": "WritingApplication",
     "operatingSystem": "Web Browser",

@@ -9,16 +9,16 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Text to Slug Converter - Create SEO-Friendly URLs | TextToolsPro',
     description: 'Free online tool to convert text into clean, SEO-friendly URL slugs for websites and blogs.',
-    url: 'https://www.text-tools-pro.com/text-to-slug',
-    images: 'https://www.text-tools-pro.com/images/text-to-slug-og.jpg',
+    url: 'https://www.texttoolspro.com/text-to-slug',
+    images: 'https://www.texttoolspro.com/images/text-to-slug-og.jpg',
   },
   twitter: {
     title: 'Text to Slug Converter - Create SEO-Friendly URLs | TextToolsPro',
     description: 'Free online tool to convert text into clean, SEO-friendly URL slugs for websites and blogs.',
-    images: 'https://www.text-tools-pro.com/images/text-to-slug-twitter.jpg',
+    images: 'https://www.texttoolspro.com/images/text-to-slug-twitter.jpg',
   },
   alternates: {
-    canonical: 'https://www.text-tools-pro.com/text-to-slug'
+    canonical: 'https://www.texttoolspro.com/text-to-slug'
   }
 }
 
@@ -27,7 +27,7 @@ export default function TextToSlugPage() {
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "Text to Slug Converter",
-    "url": "https://www.text-tools-pro.com/text-to-slug",
+    "url": "https://www.texttoolspro.com/text-to-slug",
     "description": "Free online tool to convert text into SEO-friendly URL slugs",
     "applicationCategory": "WebDevelopmentApplication",
     "operatingSystem": "Web Browser",

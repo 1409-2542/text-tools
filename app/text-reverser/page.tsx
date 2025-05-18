@@ -9,16 +9,16 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Text Reverser Tool - Flip & Reverse Text Online | TextToolsPro',
     description: 'Free online tool to reverse your text or reverse each word\'s letters.',
-    url: 'https://www.text-tools-pro.com/text-reverser',
-    images: 'https://www.text-tools-pro.com/images/text-reverser-og.jpg',
+    url: 'https://www.texttoolspro.com/text-reverser',
+    images: 'https://www.texttoolspro.com/images/text-reverser-og.jpg',
   },
   twitter: {
     title: 'Text Reverser Tool - Flip & Reverse Text Online | TextToolsPro',
     description: 'Free online tool to reverse your text or reverse each word\'s letters.',
-    images: 'https://www.text-tools-pro.com/images/text-reverser-twitter.jpg',
+    images: 'https://www.texttoolspro.com/images/text-reverser-twitter.jpg',
   },
   alternates: {
-    canonical: 'https://www.text-tools-pro.com/text-reverser'
+    canonical: 'https://www.texttoolspro.com/text-reverser'
   }
 }
 
@@ -27,7 +27,7 @@ export default function TextReverserPage() {
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "Text Reverser Tool",
-    "url": "https://www.text-tools-pro.com/text-reverser",
+    "url": "https://www.texttoolspro.com/text-reverser",
     "description": "Free online tool to reverse text or reverse each word's letters",
     "applicationCategory": "UtilitiesApplication",
     "operatingSystem": "Web Browser",

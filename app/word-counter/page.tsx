@@ -9,16 +9,16 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Word Counter Tool - Count Words & Characters Online | TextToolsPro',
     description: 'Free online word counter tool that instantly counts words, characters, sentences, and paragraphs in your text.',
-    url: 'https://www.text-tools-pro.com/word-counter',
-    images: 'https://www.text-tools-pro.com/images/word-counter-og.jpg',
+    url: 'https://www.texttoolspro.com/word-counter',
+    images: 'https://www.texttoolspro.com/images/word-counter-og.jpg',
   },
   twitter: {
     title: 'Word Counter Tool - Count Words & Characters Online | TextToolsPro',
     description: 'Free online word counter tool that instantly counts words, characters, sentences, and paragraphs in your text.',
-    images: 'https://www.text-tools-pro.com/images/word-counter-twitter.jpg',
+    images: 'https://www.texttoolspro.com/images/word-counter-twitter.jpg',
   },
   alternates: {
-    canonical: 'https://www.text-tools-pro.com/word-counter'
+    canonical: 'https://www.texttoolspro.com/word-counter'
   }
 }
 
@@ -27,7 +27,7 @@ export default function WordCounterPage() {
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "Word Counter Tool",
-    "url": "https://www.text-tools-pro.com/word-counter",
+    "url": "https://www.texttoolspro.com/word-counter",
     "description": "Free online tool to count words, characters, sentences and paragraphs in text",
     "applicationCategory": "WritingApplication",
     "operatingSystem": "Web Browser",

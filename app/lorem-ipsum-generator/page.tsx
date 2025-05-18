@@ -9,16 +9,16 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Lorem Ipsum Generator - Create Placeholder Text Online | TextToolsPro',
     description: 'Free online tool to generate Lorem Ipsum placeholder text for your designs and mockups.',
-    url: 'https://www.text-tools-pro.com/lorem-ipsum-generator',
-    images: 'https://www.text-tools-pro.com/images/lorem-ipsum-og.jpg',
+    url: 'https://www.texttoolspro.com/lorem-ipsum-generator',
+    images: 'https://www.texttoolspro.com/images/lorem-ipsum-og.jpg',
   },
   twitter: {
     title: 'Lorem Ipsum Generator - Create Placeholder Text Online | TextToolsPro',
     description: 'Free online tool to generate Lorem Ipsum placeholder text for your designs and mockups.',
-    images: 'https://www.text-tools-pro.com/images/lorem-ipsum-twitter.jpg',
+    images: 'https://www.texttoolspro.com/images/lorem-ipsum-twitter.jpg',
   },
   alternates: {
-    canonical: 'https://www.text-tools-pro.com/lorem-ipsum-generator'
+    canonical: 'https://www.texttoolspro.com/lorem-ipsum-generator'
   }
 }
 
@@ -27,7 +27,7 @@ export default function LoremIpsumGeneratorPage() {
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "Lorem Ipsum Generator",
-    "url": "https://www.text-tools-pro.com/lorem-ipsum-generator",
+    "url": "https://www.texttoolspro.com/lorem-ipsum-generator",
     "description": "Free online tool to generate Lorem Ipsum placeholder text for design mockups",
     "applicationCategory": "DesignApplication",
     "operatingSystem": "Web Browser",
