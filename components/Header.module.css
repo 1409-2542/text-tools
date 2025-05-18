@@ -1,0 +1,60 @@
+.header {
+  background-color: var(--light-color);
+  box-shadow: var(--box-shadow);
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.headerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.logo span {
+  color: var(--accent-color);
+}
+
+.navList {
+  display: flex;
+  list-style: none;
+}
+
+.navList li {
+  margin-left: 1.5rem;
+}
+
+.navList li a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.navList li a:hover {
+  color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+  .headerContent {
+    flex-direction: column;
+  }
+  
+  .navList {
+    margin-top: 1rem;
+  }
+  
+  .navList li {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+}

@@ -1,35 +1,63 @@
-'use client';
+import WordCounterTool from '@/components/WordCounterTool'
+import Breadcrumbs from '@/components/Breadcrumbs'
+import { Metadata } from 'next'
 
-import { useState } from 'react';
-import Head from 'next/head';
+export const metadata: Metadata = {
+  title: 'Word Counter Tool - Count Words & Characters Online | TextToolsPro',
+  description: 'Free online word counter tool that instantly counts words, characters, sentences, and paragraphs in your text.',
+  keywords: 'word counter, character counter, sentence counter, paragraph counter',
+  openGraph: {
+    title: 'Word Counter Tool - Count Words & Characters Online | TextToolsPro',
+    description: 'Free online word counter tool that instantly counts words, characters, sentences, and paragraphs in your text.',
+    url: 'https://www.text-tools-pro.com/word-counter',
+    images: 'https://www.text-tools-pro.com/images/word-counter-og.jpg',
+  },
+  twitter: {
+    title: 'Word Counter Tool - Count Words & Characters Online | TextToolsPro',
+    description: 'Free online word counter tool that instantly counts words, characters, sentences, and paragraphs in your text.',
+    images: 'https://www.text-tools-pro.com/images/word-counter-twitter.jpg',
+  },
+  alternates: {
+    canonical: 'https://www.text-tools-pro.com/word-counter'
+  }
+}
 
 export default function WordCounterPage() {
-  const [text, setText] = useState('');
-
-  const wordCount = text.trim() === '' ? 0 : text.trim().split(/\s+/).length;
-  const charCount = text.length;
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Word Counter Tool",
+    "url": "https://www.text-tools-pro.com/word-counter",
+    "description": "Free online tool to count words, characters, sentences and paragraphs in text",
+    "applicationCategory": "WritingApplication",
+    "operatingSystem": "Web Browser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "creator": {
+      "@type": "Organization",
+      "name": "TextToolsPro"
+    }
+  }
 
   return (
-    <div className="space-y-4">
-      <Head>
-        <title>Word Counter - Text Tools</title>
-        <meta
-          name="description"
-          content="Free online word counter to count words and characters in your text."
-        />
-      </Head>
-      <h1 className="text-2xl font-bold">Word Counter</h1>
-      <textarea
-        rows={8}
-        className="w-full p-2 border rounded border-gray-300"
-        placeholder="Type or paste your text here..."
-        value={text}
-        onChange={(e) => setText(e.target.value)}
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      <div className="bg-white p-4 rounded shadow text-lg">
-        <p><strong>Words:</strong> {wordCount}</p>
-        <p><strong>Characters:</strong> {charCount}</p>
+      <div className="container">
+        <Breadcrumbs 
+          items={[
+            { label: 'Home', href: '/' },
+            { label: 'Text Tools', href: '/#tools' },
+            { label: 'Word Counter', href: '/word-counter' }
+          ]}
+        />
       </div>
-    </div>
-  );
+      <WordCounterTool />
+    </>
+  )
 }

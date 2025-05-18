@@ -1,0 +1,49 @@
+.ctaSection {
+  background: linear-gradient(135deg, var(--accent-color), #ff8e8e);
+  color: var(--light-color);
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.ctaSection h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.ctaSection p {
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  font-size: 1.1rem;
+}
+
+.ctaButton {
+  display: inline-block;
+  background-color: var(--light-color);
+  color: var(--accent-color);
+  padding: 0.8rem 2rem;
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.ctaButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+  .ctaSection h2 {
+    font-size: 1.8rem;
+  }
+  
+  .ctaSection p {
+    font-size: 1rem;
+  }
+  
+  .ctaButton {
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+  }
+}

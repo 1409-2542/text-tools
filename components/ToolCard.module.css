@@ -1,0 +1,31 @@
+.toolCard {
+  background-color: var(--light-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: 1.5rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-decoration: none;
+  color: var(--text-color);
+  display: block;
+}
+
+.toolCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.toolIcon {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.toolCard h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.toolCard p {
+  color: #666;
+  font-size: 0.9rem;
+}

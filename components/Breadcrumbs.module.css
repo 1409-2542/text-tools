@@ -1,0 +1,19 @@
+.breadcrumbs {
+  padding: 1rem 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.link {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.separator {
+  margin: 0 0.25rem;
+  color: #999;
+}

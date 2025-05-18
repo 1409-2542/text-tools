@@ -1,0 +1,35 @@
+.relatedTools h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: var(--dark-color);
+}
+
+.relatedToolsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.relatedToolCard {
+  background-color: var(--light-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: 1.5rem;
+  transition: transform 0.3s;
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+.relatedToolCard:hover {
+  transform: translateY(-5px);
+}
+
+.relatedToolCard h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.relatedToolCard p {
+  color: #666;
+  font-size: 0.9rem;
+}
