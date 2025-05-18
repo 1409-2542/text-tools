@@ -1,51 +1,63 @@
-'use client';
+import RemoveLineBreaksTool from '@/components/RemoveLineBreaksTool'
+import Breadcrumbs from '@/components/Breadcrumbs'
+import { Metadata } from 'next'
 
-import { useState } from 'react';
-import Head from 'next/head';
+export const metadata: Metadata = {
+  title: 'Remove Line Breaks Tool - Clean Text Online | TextToolsPro',
+  description: 'Free online tool to remove unwanted line breaks, newlines, and paragraph breaks from your text instantly.',
+  keywords: 'remove line breaks, delete newlines, text cleaner, text formatter',
+  openGraph: {
+    title: 'Remove Line Breaks Tool - Clean Text Online | TextToolsPro',
+    description: 'Free online tool to remove unwanted line breaks, newlines, and paragraph breaks from your text instantly.',
+    url: 'https://www.texttoolspro.com/remove-line-breaks',
+    images: 'https://www.texttoolspro.com/images/remove-line-breaks-og.jpg',
+  },
+  twitter: {
+    title: 'Remove Line Breaks Tool - Clean Text Online | TextToolsPro',
+    description: 'Free online tool to remove unwanted line breaks from your text instantly.',
+    images: 'https://www.texttoolspro.com/images/remove-line-breaks-twitter.jpg',
+  },
+  alternates: {
+    canonical: 'https://www.texttoolspro.com/remove-line-breaks'
+  }
+}
 
 export default function RemoveLineBreaksPage() {
-  const [input, setInput] = useState('');
-  const [output, setOutput] = useState('');
-
-  const handleRemoveLineBreaks = () => {
-    const cleaned = input.replace(/[\r\n]+/g, ' ').replace(/\s+/g, ' ').trim();
-    setOutput(cleaned);
-  };
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Remove Line Breaks Tool",
+    "url": "https://www.texttoolspro.com/remove-line-breaks",
+    "description": "Free online tool to remove unwanted line breaks and newlines from text",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Web Browser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "creator": {
+      "@type": "Organization",
+      "name": "TextToolsPro"
+    }
+  }
 
   return (
-    <div className="space-y-4">
-      <Head>
-        <title>Remove Line Breaks - Simple Text Tools</title>
-        <meta
-          name="description"
-          content="Easily remove all line breaks and extra spaces from your text."
-        />
-      </Head>
-      <h1 className="text-2xl font-bold">Remove Line Breaks</h1>
-      <textarea
-        rows={8}
-        className="w-full p-2 border rounded border-gray-300"
-        placeholder="Paste your text here..."
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      <button
-        className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
-        onClick={handleRemoveLineBreaks}
-      >
-        Remove Line Breaks
-      </button>
-      {output && (
-        <div>
-          <h2 className="text-lg font-semibold">Result</h2>
-          <textarea
-            rows={6}
-            readOnly
-            className="w-full p-2 border rounded border-gray-300 bg-gray-100"
-            value={output}
-          />
-        </div>
-      )}
-    </div>
-  );
+      <div className="container">
+        <Breadcrumbs 
+          items={[
+            { label: 'Home', href: '/' },
+            { label: 'Text Tools', href: '/tools' },
+            { label: 'Remove Line Breaks', href: '/tools/remove-line-breaks' }
+          ]}
+        />
+      </div>
+      <RemoveLineBreaksTool />
+    </>
+  )
 }
