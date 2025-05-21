@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://www.texttoolspro.com/case-converter</loc><lastmod>2025-05-21T14:15:54.915Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://www.texttoolspro.com</loc><lastmod>2025-05-21T14:15:54.917Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://www.texttoolspro.com/text-diff</loc><lastmod>2025-05-21T14:15:54.917Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://www.texttoolspro.com/base64-encode-decode</loc><lastmod>2025-05-21T14:15:54.917Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://www.texttoolspro.com/remove-line-breaks</loc><lastmod>2025-05-21T14:15:54.917Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://www.texttoolspro.com/text-reverser</loc><lastmod>2025-05-21T14:15:54.917Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://www.texttoolspro.com/text-to-slug</loc><lastmod>2025-05-21T14:15:54.917Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://www.texttoolspro.com/word-counter</loc><lastmod>2025-05-21T14:15:54.917Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://www.texttoolspro.com/markdown-to-html</loc><lastmod>2025-05-21T14:15:54.917Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://www.texttoolspro.com/password-generator</loc><lastmod>2025-05-21T14:15:54.917Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://www.texttoolspro.com/blog</loc><lastmod>2025-05-21T14:15:54.918Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://www.texttoolspro.com/lorem-ipsum-generator</loc><lastmod>2025-05-21T14:15:54.918Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://www.texttoolspro.com/remove-duplicate-lines</loc><lastmod>2025-05-21T14:15:54.918Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.texttoolspro.com/case-converter</loc><lastmod>2025-05-21T15:24:34.502Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.texttoolspro.com</loc><lastmod>2025-05-21T15:24:34.503Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.texttoolspro.com/remove-duplicate-lines</loc><lastmod>2025-05-21T15:24:34.503Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.texttoolspro.com/text-reverser</loc><lastmod>2025-05-21T15:24:34.503Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.texttoolspro.com/text-diff</loc><lastmod>2025-05-21T15:24:34.503Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.texttoolspro.com/remove-line-breaks</loc><lastmod>2025-05-21T15:24:34.503Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.texttoolspro.com/text-to-slug</loc><lastmod>2025-05-21T15:24:34.503Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.texttoolspro.com/password-generator</loc><lastmod>2025-05-21T15:24:34.503Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.texttoolspro.com/word-counter</loc><lastmod>2025-05-21T15:24:34.503Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.texttoolspro.com/lorem-ipsum-generator</loc><lastmod>2025-05-21T15:24:34.503Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.texttoolspro.com/blog</loc><lastmod>2025-05-21T15:24:34.503Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.texttoolspro.com/url-encode-decode</loc><lastmod>2025-05-21T15:24:34.503Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.texttoolspro.com/base64-encode-decode</loc><lastmod>2025-05-21T15:24:34.503Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.texttoolspro.com/markdown-to-html</loc><lastmod>2025-05-21T15:24:34.503Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
 </urlset>

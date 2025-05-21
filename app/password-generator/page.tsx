@@ -52,8 +52,8 @@ export default function PasswordGeneratorPage() {
         <Breadcrumbs 
           items={[
             { label: 'Home', href: '/' },
-            { label: 'Text Tools', href: '/tools' },
-            { label: 'Password Generator', href: '/tools/password-generator' }
+            { label: 'Text Tools', href: '/#tools' },
+            { label: 'Password Generator', href: '/password-generator' }
           ]}
         />
       </div>

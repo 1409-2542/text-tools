@@ -52,8 +52,8 @@ export default function MarkdownToHtmlPage() {
         <Breadcrumbs 
           items={[
             { label: 'Home', href: '/' },
-            { label: 'Text Tools', href: '/tools' },
-            { label: 'Markdown to HTML', href: '/tools/markdown-to-html' }
+            { label: 'Text Tools', href: '/#tools' },
+            { label: 'Markdown to HTML', href: '/markdown-to-html' }
           ]}
         />
       </div>

@@ -52,8 +52,8 @@ export default function Base64Page() {
         <Breadcrumbs 
           items={[
             { label: 'Home', href: '/' },
-            { label: 'Text Tools', href: '/tools' },
-            { label: 'Base64 Encode/Decode', href: '/tools/base64-encode-decode' }
+            { label: 'Text Tools', href: '/#tools' },
+            { label: 'Base64 Encode/Decode', href: '/base64-encode-decode' }
           ]}
         />
       </div>

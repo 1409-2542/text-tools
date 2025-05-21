@@ -63,7 +63,7 @@ const tools = [
     description: "Encode and decode Base64 strings"
   },
   {
-    href: "/url-encode",
+    href: "/url-encode-decode",
     icon: "🌐",
     title: "URL Encode/Decode",
     description: "Encode and decode URL strings"
