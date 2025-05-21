@@ -390,10 +390,10 @@ export default function LoremIpsumGenerator() {
           
           <RelatedTools 
             tools={[
-              { href: "/word-counter", title: "Word Counter", description: "Count words, characters, and more in your text" },
+              { href: "/remove-line-breaks", title: "Remove Line Breaks", description: "Clean up text by removing unnecessary line breaks" },
               { href: "/case-converter", title: "Case Converter", description: "Change text between uppercase and lowercase" },
-              { href: "/random-word-generator", title: "Random Word Generator", description: "Generate random words for creative projects" },
-              { href: "/text-reverser", title: "Text Reverser", description: "Reverse your text or reverse each word's letters" }
+              { href: "/text-diff", title: "Text Comparison", description: "Compare two texts and find differences" },
+              { href: "/remove-duplicate-lines", title: "Remove Duplicate Lines", description: "Clean your text by removing duplicate lines" }
             ]}
           />
           

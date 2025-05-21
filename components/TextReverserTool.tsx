@@ -266,10 +266,10 @@ Words reversed: olleH !dlroW sihT si a .tset</div>
           
           <RelatedTools 
             tools={[
+              { href: "/remove-line-breaks", title: "Remove Line Breaks", description: "Clean up text by removing unnecessary line breaks" },
               { href: "/case-converter", title: "Case Converter", description: "Change text between uppercase and lowercase" },
-              { href: "/upside-down-text", title: "Upside Down Text", description: "Flip text upside down for fun effects" },
-              { href: "/mirror-text", title: "Mirror Text", description: "Create mirror image text for designs" },
-              { href: "/text-rotator", title: "Text Rotator", description: "Rotate text at different angles" }
+              { href: "/text-diff", title: "Text Comparison", description: "Compare two texts and find differences" },
+              { href: "/remove-duplicate-lines", title: "Remove Duplicate Lines", description: "Clean your text by removing duplicate lines" }
             ]}
           />
           

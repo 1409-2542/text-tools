@@ -57,7 +57,7 @@ const tools = [
     description: "Create strong, random passwords for your accounts"
   },
   {
-    href: "/base64-encode",
+    href: "/base64-encode-decode",
     icon: "🔢",
     title: "Base64 Encode/Decode",
     description: "Encode and decode Base64 strings"

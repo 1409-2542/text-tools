@@ -290,10 +290,10 @@ const convertToSlug = useCallback(() => {
           
           <RelatedTools 
             tools={[
-              { href: "/url-encoder", title: "URL Encoder", description: "Encode special characters in URLs" },
-              { href: "/url-decoder", title: "URL Decoder", description: "Decode encoded URL components" },
+              { href: "/remove-line-breaks", title: "Remove Line Breaks", description: "Clean up text by removing unnecessary line breaks" },
               { href: "/case-converter", title: "Case Converter", description: "Change text between uppercase and lowercase" },
-              { href: "/keyword-extractor", title: "Keyword Extractor", description: "Extract important keywords from text" }
+              { href: "/text-diff", title: "Text Comparison", description: "Compare two texts and find differences" },
+              { href: "/remove-duplicate-lines", title: "Remove Duplicate Lines", description: "Clean your text by removing duplicate lines" }
             ]}
           />
           

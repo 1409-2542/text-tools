@@ -202,10 +202,10 @@ export default function WordCounterTool() {
           
           <RelatedTools 
             tools={[
-              { href: "/word-counter", title: "Character Counter", description: "Count characters with and without spaces" },
+              { href: "/remove-line-breaks", title: "Remove Line Breaks", description: "Clean up text by removing unnecessary line breaks" },
               { href: "/case-converter", title: "Case Converter", description: "Change text between uppercase and lowercase" },
-              { href: "/keyword-density-checker", title: "Keyword Density", description: "Analyze keyword usage in your text" },
-              { href: "/text-summarizer", title: "Text Summarizer", description: "Condense long texts into key points" }
+              { href: "/text-diff", title: "Text Comparison", description: "Compare two texts and find differences" },
+              { href: "/remove-duplicate-lines", title: "Remove Duplicate Lines", description: "Clean your text by removing duplicate lines" }
             ]}
           />
           

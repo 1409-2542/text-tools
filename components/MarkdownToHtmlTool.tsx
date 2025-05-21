@@ -274,10 +274,10 @@ export default function MarkdownToHtmlTool() {
           
           <RelatedTools 
             tools={[
-              { href: "/tools/html-to-markdown", title: "HTML to Markdown", description: "Convert HTML code to Markdown syntax" },
-              { href: "/tools/html-formatter", title: "HTML Formatter", description: "Beautify and format your HTML code" },
-              { href: "/tools/css-formatter", title: "CSS Formatter", description: "Format and beautify CSS code" },
-              { href: "/tools/json-formatter", title: "JSON Formatter", description: "Format and validate JSON data" }
+              { href: "/remove-line-breaks", title: "Remove Line Breaks", description: "Clean up text by removing unnecessary line breaks" },
+              { href: "/case-converter", title: "Case Converter", description: "Change text between uppercase and lowercase" },
+              { href: "/text-diff", title: "Text Comparison", description: "Compare two texts and find differences" },
+              { href: "/remove-duplicate-lines", title: "Remove Duplicate Lines", description: "Clean your text by removing duplicate lines" }
             ]}
           />
           

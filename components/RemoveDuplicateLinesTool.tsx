@@ -382,9 +382,9 @@ cherry
           <RelatedTools 
             tools={[
               { href: "/remove-line-breaks", title: "Remove Line Breaks", description: "Clean up text by removing unnecessary line breaks" },
-              { href: "/tools/text-comparison", title: "Text Comparison", description: "Compare two texts and find differences" },
-              { href: "/sort-lines", title: "Sort Lines", description: "Alphabetize or shuffle lines of text" },
-              { href: "/word-counter", title: "Word Counter", description: "Count words, characters, and more" }
+              { href: "/case-converter", title: "Case Converter", description: "Change text between uppercase and lowercase" },
+              { href: "/text-diff", title: "Text Comparison", description: "Compare two texts and find differences" },
+              { href: "/word-counter", title: "Word Counter", description: "Count words, characters, and more in your text" }
             ]}
           />
           

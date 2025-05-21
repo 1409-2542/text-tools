@@ -374,10 +374,10 @@ export default function TextDiffTool() {
           
           <RelatedTools 
             tools={[
-              { href: "/text-comparison", title: "Text Comparison", description: "Side-by-side text comparison with highlighting" },
-              { href: "/merge-text", title: "Text Merger", description: "Combine changes from multiple text versions" },
-              { href: "/code-diff", title: "Code Diff", description: "Specialized diff tool for programming code" },
-              { href: "/plagiarism-checker", title: "Plagiarism Checker", description: "Compare texts for similarity and duplication" }
+              { href: "/remove-line-breaks", title: "Remove Line Breaks", description: "Clean up text by removing unnecessary line breaks" },
+              { href: "/case-converter", title: "Case Converter", description: "Change text between uppercase and lowercase" },
+              { href: "/word-counter", title: "Word Counter", description: "Count words, characters, and more in your text" },
+              { href: "/remove-duplicate-lines", title: "Remove Duplicate Lines", description: "Clean your text by removing duplicate lines" }
             ]}
           />
           

@@ -316,10 +316,10 @@ export default function CaseConverterTool() {
           
           <RelatedTools 
             tools={[
-              { href: "/word-counter", title: "Word Counter", description: "Count words, characters, and more in your text" },
-              { href: "/text-reverser", title: "Text Reverser", description: "Reverse your text or reverse each word's letters" },
               { href: "/remove-line-breaks", title: "Remove Line Breaks", description: "Clean up text by removing unnecessary line breaks" },
-              { href: "/text-comparison", title: "Text Comparison", description: "Compare two texts and find differences" }
+              { href: "/word-counter", title: "Word Counter", description: "Count words, characters, and more in your text" },
+              { href: "/text-diff", title: "Text Comparison", description: "Compare two texts and find differences" },
+              { href: "/remove-duplicate-lines", title: "Remove Duplicate Lines", description: "Clean your text by removing duplicate lines" }
             ]}
           />
           
