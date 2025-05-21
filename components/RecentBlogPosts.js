@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 const RecentBlogPosts = () => {
   const posts = [
     {
@@ -45,12 +47,11 @@ const RecentBlogPosts = () => {
         </div>
         
         <div className="text-center mt-12">
-          <a 
+          <Link
             href="/blog" 
-            className="inline-flex items-center px-6 py-3 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-white font-medium rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors duration-300"
-          >
+            className="inline-flex items-center px-6 py-3 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-white font-medium rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors duration-300">
             Read More Articles
-          </a>
+          </Link>
         </div>
       </div>
     </section>
