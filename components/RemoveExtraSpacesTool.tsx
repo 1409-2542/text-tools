@@ -203,7 +203,7 @@ export default function RemoveExtraSpacesTool() {
           
           <div className={styles.toolDescription}>
             <h2>About Our Space Removal Tool</h2>
-            <p>Our free online tool helps you clean up text by removing unnecessary spaces and formatting issues. Whether you're working with copied text, fixing data exports, or preparing content for publication, this tool ensures your text is perfectly formatted.</p>
+            <p>Our free online tool helps you clean up text by removing unnecessary spaces and formatting issues. Whether you&apos;re working with copied text, fixing data exports, or preparing content for publication, this tool ensures your text is perfectly formatted.</p>
             
             <p>The space cleaner is particularly useful for:</p>
             <ul>
@@ -219,9 +219,9 @@ export default function RemoveExtraSpacesTool() {
             <ol>
               <li>Paste your text with extra spaces into the input box</li>
               <li>Select your cleaning options (or keep the defaults)</li>
-              <li>Click "Clean Spaces" to process your text</li>
-              <li>Copy the cleaned result using the "Copy to Clipboard" button</li>
-              <li>Use "Clear All" to start fresh with new text</li>
+              <li>Click &quot;Clean Spaces&quot; to process your text</li>
+              <li>Copy the cleaned result using the &quot;Copy to Clipboard&quot; button</li>
+              <li>Use &quot;Clear All&quot; to start fresh with new text</li>
             </ol>
             
             <h3>Advanced Space Cleaning Features</h3>
