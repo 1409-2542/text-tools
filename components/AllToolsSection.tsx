@@ -62,11 +62,17 @@ const tools = [
     title: "Password Generator",
     description: "Create strong, random passwords for your accounts"
   },
-  {
-    href: "/base64-encode-decode",
-    icon: "🔢",
-    title: "Base64 Encode/Decode",
-    description: "Encode and decode Base64 strings"
+//  {
+//    href: "/base64-encode-decode",
+//    icon: "🔢",
+//    title: "Base64 Encode/Decode",
+//    description: "Encode and decode Base64 strings"
+//  },
+    {
+    href: "/text-sorter",
+    icon: "🔤",
+    title: "A-Z sorter, Z-A sorter",
+    description: "Sort Lines Alphabetically (A-Z) or Reverse (Z-A)"
   },
   {
     href: "/url-encode-decode",
