@@ -21,7 +21,6 @@ export default function Footer() {
             <ul>
               <li><Link href="/blog">Blog</Link></li>
               <li><Link href="/tutorials">Tutorials</Link></li>
-              <li><Link href="/api">API Documentation</Link></li>
               <li><Link href="/faq">FAQ</Link></li>
             </ul>
           </div>
@@ -32,15 +31,6 @@ export default function Footer() {
               <li><Link href="/contact">Contact</Link></li>
               <li><Link href="/privacy">Privacy Policy</Link></li>
               <li><Link href="/terms">Terms of Service</Link></li>
-            </ul>
-          </div>
-          <div className={styles.footerColumn}>
-            <h3>Connect</h3>
-            <ul>
-              <li><a href="https://twitter.com/texttoolspro">Twitter</a></li>
-              <li><a href="https://facebook.com/texttoolspro">Facebook</a></li>
-              <li><a href="https://github.com/texttoolspro">GitHub</a></li>
-              <li><Link href="/newsletter">Newsletter</Link></li>
             </ul>
           </div>
         </div>

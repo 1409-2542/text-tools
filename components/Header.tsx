@@ -11,10 +11,10 @@ export default function Header() {
         <nav>
           <ul className={styles.navList}>
             <li><Link href="/#tools">Tools</Link></li>
-            <li><Link href="#popular">Popular</Link></li>
-            <li><Link href="#about">About</Link></li>
-            <li><Link href="#contact">Contact</Link></li>
             <li><Link href="/blog">Blog</Link></li>
+            <li><Link href="/tutorials">Tutorials</Link></li>
+            <li><Link href="/faq">FAQ</Link></li>
+            <li><Link href="#contact">Contact</Link></li>
           </ul>
         </nav>
       </div>
