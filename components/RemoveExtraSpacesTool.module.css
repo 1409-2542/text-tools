@@ -1,0 +1,277 @@
+.toolHeader {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.toolHeader h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--dark-color);
+}
+
+.toolHeader p {
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto;
+  color: #666;
+}
+
+.toolContainer {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+@media (max-width: 768px) {
+  .toolContainer {
+    grid-template-columns: 1fr;
+  }
+}
+
+.toolMain {
+  background-color: var(--light-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: 2rem;
+}
+
+.toolSidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.adUnit {
+  background-color: #f0f0f0;
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  text-align: center;
+  min-height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed #ccc;
+}
+
+.adUnit p {
+  color: #999;
+}
+
+.textInputContainer {
+  margin-bottom: 2rem;
+}
+
+.textInputContainer label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.textInput {
+  width: 100%;
+  min-height: 200px;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  line-height: 1.6;
+  resize: vertical;
+}
+
+.textInput:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(74, 107, 255, 0.2);
+}
+
+.optionsContainer {
+  margin-bottom: 1.5rem;
+}
+
+.optionsContainer h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: var(--dark-color);
+}
+
+.optionCheckbox {
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+}
+
+.optionCheckbox input {
+  margin-right: 0.5rem;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.btn {
+  padding: 0.8rem 1.5rem;
+  border-radius: var(--border-radius);
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btnPrimary {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.btnPrimary:hover {
+  background-color: #3a5bef;
+  transform: translateY(-2px);
+}
+
+.btnSecondary {
+  background-color: #e9ecef;
+  color: var(--dark-color);
+}
+
+.btnSecondary:hover {
+  background-color: #dee2e6;
+}
+
+.resultsContainer {
+  margin-bottom: 2rem;
+}
+
+.resultsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.resultsHeader h3 {
+  font-size: 1.2rem;
+  color: var(--dark-color);
+}
+
+.copyBtn {
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background-color 0.3s;
+}
+
+.copyBtn:hover {
+  background-color: #e05555;
+}
+
+.copyBtn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.resultOutput {
+  width: 100%;
+  min-height: 200px;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: var(--border-radius);
+  background-color: #f9f9f9;
+  font-size: 1rem;
+  line-height: 1.6;
+  resize: vertical;
+}
+
+.statsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.statCard {
+  background-color: var(--light-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: 1rem;
+  text-align: center;
+}
+
+.statValue {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 0.3rem;
+}
+
+.statLabel {
+  color: #666;
+  font-size: 0.8rem;
+}
+
+.toolDescription {
+  margin-bottom: 3rem;
+}
+
+.toolDescription h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: var(--dark-color);
+}
+
+.toolDescription p {
+  margin-bottom: 1rem;
+  line-height: 1.7;
+}
+
+.toolDescription ul, .toolDescription ol {
+  margin-bottom: 1rem;
+  padding-left: 2rem;
+}
+
+.toolDescription li {
+  margin-bottom: 0.5rem;
+}
+
+.faqSection {
+  margin-bottom: 3rem;
+}
+
+.faqSection h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: var(--dark-color);
+}
+
+.faqItem {
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1.5rem;
+}
+
+.faqQuestion {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+  .toolHeader h1 {
+    font-size: 2rem;
+  }
+  
+  .actionButtons {
+    flex-direction: column;
+  }
+  
+  .btn {
+    width: 100%;
+  }
+}

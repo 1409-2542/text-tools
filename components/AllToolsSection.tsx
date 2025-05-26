@@ -44,12 +44,18 @@ const tools = [
     title: "Text Diff",
     description: "Compare two texts and find differences between them"
   },
-  {
-    href: "/markdown-to-html",
-    icon: "📄",
-    title: "Markdown to HTML",
-    description: "Convert Markdown formatted text to HTML code"
-  },
+   {
+    href: "/remove-extra-spaces",
+    icon: "↩️",
+    title: "Remove Extra Spaces",
+    description: "Clean text by removing extra spaces and formatting whitespace"
+  }, 
+//  {
+//    href: "/markdown-to-html",
+//    icon: "📄",
+//    title: "Markdown to HTML",
+//    description: "Convert Markdown formatted text to HTML code"
+//  },
   {
     href: "/password-generator",
     icon: "🔒",
