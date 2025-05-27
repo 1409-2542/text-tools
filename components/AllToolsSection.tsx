@@ -50,24 +50,24 @@ const tools = [
     title: "Remove Extra Spaces",
     description: "Clean text by removing extra spaces and formatting whitespace"
   }, 
-//  {
-//    href: "/markdown-to-html",
-//    icon: "📄",
-//    title: "Markdown to HTML",
-//    description: "Convert Markdown formatted text to HTML code"
-//  },
+  {
+    href: "/markdown-to-html",
+    icon: "📄",
+    title: "Markdown to HTML",
+    description: "Convert Markdown formatted text to HTML code"
+  },
   {
     href: "/password-generator",
     icon: "🔒",
     title: "Password Generator",
     description: "Create strong, random passwords for your accounts"
   },
-//  {
-//    href: "/base64-encode-decode",
-//    icon: "🔢",
-//    title: "Base64 Encode/Decode",
-//    description: "Encode and decode Base64 strings"
-//  },
+  {
+    href: "/base64-encode-decode",
+    icon: "🔢",
+    title: "Base64 Encode/Decode",
+    description: "Encode and decode Base64 strings"
+  },
     {
     href: "/text-sorter",
     icon: "🔤",
