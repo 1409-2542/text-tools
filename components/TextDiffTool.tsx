@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react'
 import styles from './TextDiffTool.module.css'
-import RelatedTools from '@/components/RelatedTools'
+import ToolSidebar from "@/components/ToolSidebar";
 
 type DiffMethod = 'chars' | 'words' | 'lines'
 
@@ -367,23 +367,8 @@ export default function TextDiffTool() {
           </div>
         </div>
         
-        <div className={styles.toolSidebar}>
-          <div className={styles.adUnit}>
-            <p>Advertisement</p>
-          </div>
-          
-          <RelatedTools 
-            tools={[
-              { href: "/remove-line-breaks", title: "Remove Line Breaks", description: "Clean up text by removing unnecessary line breaks" },
-              { href: "/case-converter", title: "Case Converter", description: "Change text between uppercase and lowercase" },
-              { href: "/word-counter", title: "Word Counter", description: "Count words, characters, and more in your text" },
-              { href: "/remove-duplicate-lines", title: "Remove Duplicate Lines", description: "Clean your text by removing duplicate lines" }
-            ]}
-          />
-          
-          <div className={styles.adUnit}>
-            <p>Advertisement</p>
-          </div>
+        <div>
+          <ToolSidebar />
         </div>
       </div>
     </main>

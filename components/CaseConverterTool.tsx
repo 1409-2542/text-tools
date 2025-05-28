@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react'
 import styles from './CaseConverterTool.module.css'
-import RelatedTools from '@/components/RelatedTools'
+import ToolSidebar from "@/components/ToolSidebar";
 
 export default function CaseConverterTool() {
   const [text, setText] = useState('')
@@ -309,23 +309,8 @@ export default function CaseConverterTool() {
           </div>
         </div>
         
-        <div className={styles.toolSidebar}>
-          <div className={styles.adUnit}>
-            <p>Advertisement</p>
-          </div>
-          
-          <RelatedTools 
-            tools={[
-              { href: "/remove-line-breaks", title: "Remove Line Breaks", description: "Clean up text by removing unnecessary line breaks" },
-              { href: "/word-counter", title: "Word Counter", description: "Count words, characters, and more in your text" },
-              { href: "/text-diff", title: "Text Comparison", description: "Compare two texts and find differences" },
-              { href: "/remove-duplicate-lines", title: "Remove Duplicate Lines", description: "Clean your text by removing duplicate lines" }
-            ]}
-          />
-          
-          <div className={styles.adUnit}>
-            <p>Advertisement</p>
-          </div>
+        <div>
+          <ToolSidebar />
         </div>
       </div>
     </main>

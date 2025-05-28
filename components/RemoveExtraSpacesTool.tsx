@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import styles from './RemoveExtraSpacesTool.module.css'
-import RelatedTools from '@/components/RelatedTools'
+import ToolSidebar from "@/components/ToolSidebar";
 
 export default function RemoveExtraSpacesTool() {
   const [text, setText] = useState('')
@@ -264,23 +264,8 @@ export default function RemoveExtraSpacesTool() {
           </div>
         </div>
         
-        <div className={styles.toolSidebar}>
-          <div className={styles.adUnit}>
-            <p>Advertisement</p>
-          </div>
-          
-          <RelatedTools 
-            tools={[
-              { href: "/remove-line-breaks", title: "Remove Line Breaks", description: "Delete unwanted line breaks from your text" },
-              { href: "/text-formatter", title: "Text Formatter", description: "Format and clean up messy text" },
-              { href: "/whitespace-remover", title: "Whitespace Remover", description: "Remove all whitespace from text" },
-              { href: "/text-compare", title: "Text Compare", description: "Compare original and cleaned text" }
-            ]}
-          />
-          
-          <div className={styles.adUnit}>
-            <p>Advertisement</p>
-          </div>
+        <div>
+          <ToolSidebar />
         </div>
       </div>
     </main>

@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react'
 import styles from './Base64Tool.module.css'
-import RelatedTools from '@/components/RelatedTools'
+import ToolSidebar from "../components/ToolSidebar";
 
 export default function Base64Tool() {
   const [activeTab, setActiveTab] = useState<'text' | 'file'>('text')
@@ -369,23 +369,8 @@ export default function Base64Tool() {
           </div>
         </div>
         
-        <div className={styles.toolSidebar}>
-          <div className={styles.adUnit}>
-            <p>Advertisement</p>
-          </div>
-          
-          <RelatedTools 
-            tools={[
-              { href: "/remove-line-breaks", title: "Remove Line Breaks", description: "Clean up text by removing unnecessary line breaks" },
-              { href: "/case-converter", title: "Case Converter", description: "Change text between uppercase and lowercase" },
-              { href: "/text-diff", title: "Text Comparison", description: "Compare two texts and find differences" },
-              { href: "/remove-duplicate-lines", title: "Remove Duplicate Lines", description: "Clean your text by removing duplicate lines" }
-            ]}
-          />
-          
-          <div className={styles.adUnit}>
-            <p>Advertisement</p>
-          </div>
+        <div>
+          <ToolSidebar />
         </div>
       </div>
     </main>
