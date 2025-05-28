@@ -274,7 +274,7 @@ export default function RemoveDuplicateLinesTool() {
           
           <div className={styles.exampleContainer}>
             <div className={styles.exampleLabel}>Example:</div>
-            <div className={styles.exampleText}>Original:
+            <div className={styles.exampleText}>{`Original:
 apple
 banana
 APPLE
@@ -285,8 +285,7 @@ cherry
 Processed (ignore case, preserve blanks):
 apple
 banana
-cherry
-</div>
+cherry`}</div>
           </div>
           
           <div className={styles.toolDescription}>

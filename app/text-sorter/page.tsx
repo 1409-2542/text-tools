@@ -52,8 +52,8 @@ export default function TextSorterPage() {
         <Breadcrumbs 
           items={[
             { label: 'Home', href: '/' },
-            { label: 'Text Tools', href: '/tools' },
-            { label: 'Text Sorter', href: '/tools/text-sorter' }
+            { label: 'Text Tools', href: '/#tools' },
+            { label: 'Text Sorter', href: '/text-sorter' }
           ]}
         />
       </div>
