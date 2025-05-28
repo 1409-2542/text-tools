@@ -12,11 +12,11 @@ const tutorials = [
     description: "Learn multiple methods to sort text in alphabetical order",
     href: "/tutorials/sort-text-alphabetically",
 //    image: "/images/sorting-tutorial.jpg"
-//  },
-//  {
-//    title: "How to Remove Duplicate Lines",
-//    description: "Clean your lists by eliminating duplicate entries",
-//    href: "/tutorials/remove-duplicate-lines",
+  },
+  {
+    title: "How to Count Words Accurately",
+    description: "Learn multiple methods to count words accurately",
+    href: "/tutorials/count-words-accurately",
 //    image: "/images/remove-duplicates-tutorial.jpg"
 //  },
 //  {
