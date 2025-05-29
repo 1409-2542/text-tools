@@ -5,11 +5,11 @@ import ToolPromo from '@/components/tutorials/ToolPromo'
 
 
 export const metadata: Metadata = {
-  title: 'How to Sort Text Alphabetically: Complete Guide | TextToolsPro',
-  description: 'Learn how to sort text alphabetically with our step-by-step guide. Discover online tools and techniques for organizing lists in A-Z or Z-A order.',
-  keywords: 'how to sort text alphabetically, sort A-Z tutorial, organize text lines, text sorting guide',
+  title: 'How to Count Words Accurately: The Complete Guide | TextToolsPro',
+  description: 'Learn multiple methods to count words accurately with our step-by-step guide. Discover online tools and manual techniques for word counting.',
+  keywords: 'how to count Words, count words tutorial',
   alternates: {
-    canonical: 'https://www.texttoolspro.com/tutorials/sort-text-alphabetically'
+    canonical: 'https://www.texttoolspro.com/tutorials/count-words-accurately'
   }
 }
 
@@ -17,32 +17,22 @@ export default function SortTextTutorial() {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "HowTo",
-    "name": "How to Sort Text Alphabetically",
-    "description": "Step-by-step guide to sorting text in alphabetical order using online tools and manual methods",
+    "name": "How to Count Words Accurately",
+    "description": "Step-by-step guide to counting words using online tools and manual methods",
     "totalTime": "PT5M",
-    "supply": ["Text to sort", "Web browser"],
-    "tool": ["TextToolsPro Text Sorter"],
+    "supply": ["Word Counter", "Web browser"],
+    "tool": ["TextToolsPro Word Counter"],
     "step": [
       {
         "@type": "HowToStep",
-        "text": "Prepare your text with each item on a separate line",
+        "text": "Type or paste your text into the input box",
         "name": "Prepare Text"
       },
       {
         "@type": "HowToStep",
-        "text": "Use our free online Text Sorter tool",
-        "name": "Use Sorting Tool",
-        "url": "https://www.texttoolspro.com/text-sorter"
-      },
-      {
-        "@type": "HowToStep",
-        "text": "Choose between A-Z or Z-A sorting",
-        "name": "Select Sort Order"
-      },
-      {
-        "@type": "HowToStep",
-        "text": "Copy your sorted results",
-        "name": "Get Results"
+        "text": "Use our free online Word Counter tool",
+        "name": "Use Word Counter Tool",
+        "url": "https://www.texttoolspro.com/word-counter"
       }
     ]
   }
