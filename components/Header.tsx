@@ -12,7 +12,6 @@ export default function Header() {
           <ul className={styles.navList}>
             <li><Link href="/#tools">Tools</Link></li>
             <li><Link href="/blog">Blog</Link></li>
-            <li><Link href="/tutorials">Tutorials</Link></li>
             <li><Link href="/faq">FAQ</Link></li>
             <li><Link href="#contact">Contact</Link></li>
           </ul>

@@ -1,18 +1,15 @@
-import SearchWidget from './SearchWidget'
-import CategoriesWidget from './CategoriesWidget'
 import PopularPostsWidget from './PopularPostsWidget'
-import NewsletterWidget from './NewsletterWidget'
 import AdUnit from './AdUnit'
+import CategoriesWidget from './CategoriesWidget'
 
 export default function BlogSidebar() {
   return (
     <div className="blog-sidebar">
-      <SearchWidget />
-      <CategoriesWidget />
+      <AdUnit />
       <PopularPostsWidget />
       <AdUnit />
-      <NewsletterWidget />
-      <AdUnit />
+      <CategoriesWidget /> 
+      <AdUnit />       
     </div>
   )
 }

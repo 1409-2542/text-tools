@@ -2,12 +2,12 @@ import Link from 'next/link'
 import styles from './CategoriesWidget.module.css'
 
 const categories = [
-  { name: 'Writing Tips', slug: 'writing' },
-  { name: 'SEO', slug: 'seo' },
-  { name: 'Tool Guides', slug: 'tools' },
-  { name: 'Productivity', slug: 'productivity' },
-  { name: 'Content Marketing', slug: 'marketing' },
-  { name: 'Technology', slug: 'technology' }
+//  { name: 'Writing Tips', slug: 'writing' },
+//  { name: 'SEO', slug: 'seo' },
+  { name: 'Tool Guides', slug: 'tools' }
+//  { name: 'Productivity', slug: 'productivity' },
+//  { name: 'Content Marketing', slug: 'marketing' },
+//  { name: 'Technology', slug: 'technology' }
 ]
 
 export default function CategoriesWidget() {

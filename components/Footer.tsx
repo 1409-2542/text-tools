@@ -20,7 +20,6 @@ export default function Footer() {
             <h3>Resources</h3>
             <ul>
               <li><Link href="/blog">Blog</Link></li>
-              <li><Link href="/tutorials">Tutorials</Link></li>
               <li><Link href="/faq">FAQ</Link></li>
             </ul>
           </div>

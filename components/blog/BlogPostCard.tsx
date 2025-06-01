@@ -3,16 +3,16 @@ import styles from './BlogPostCard.module.css'
 
 interface BlogPostCardProps {
   title: string
-  excerpt: string
+  description: string
   category: string
-  slug: string
+  href: string
 }
 
 export default function BlogPostCard({
   title,
-  excerpt,
+  description,
   category,
-  slug
+  href
 }: BlogPostCardProps) {
   return (
     <article className={styles.blogPostCard}>
@@ -23,12 +23,12 @@ export default function BlogPostCard({
           </Link>
         </div>
         <h2>
-          <Link href={`/blog/${slug}`}>
+          <Link href={`${href}`}>
             {title}
           </Link>
         </h2>
-        <p className={styles.postExcerpt}>{excerpt}</p>
-        <Link href={`/blog/${slug}`} className={styles.readMore}>
+        <p className={styles.postDescription}>{description}</p>
+        <Link href={`/blog/${href}`} className={styles.readMore}>
           Read More &rarr;
         </Link>
       </div>

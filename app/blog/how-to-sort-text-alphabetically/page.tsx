@@ -1,8 +1,8 @@
 import { Metadata } from 'next'
 import Breadcrumbs from '@/components/Breadcrumbs'
-import ArticleHeader from '@/components/tutorials/ArticleHeader'
-import ToolPromo from '@/components/tutorials/ToolPromo'
-import NoteBox from '@/components/tutorials/NoteBox'
+import ArticleHeader from '@/components/blog/ArticleHeader'
+import ToolPromo from '@/components/blog/ToolPromo'
+import NoteBox from '@/components/blog/NoteBox'
 
 
 export const metadata: Metadata = {
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: 'Learn how to sort text alphabetically with our step-by-step guide. Discover online tools and techniques for organizing lists in A-Z or Z-A order.',
   keywords: 'how to sort text alphabetically, sort A-Z tutorial, organize text lines, text sorting guide',
   alternates: {
-    canonical: 'https://www.texttoolspro.com/tutorials/sort-text-alphabetically'
+    canonical: 'https://www.texttoolspro.com/blog/how-to-sort-text-alphabetically'
   }
 }
 
@@ -79,8 +79,8 @@ export default function SortTextTutorial() {
         <Breadcrumbs 
           items={[
             { label: 'Home', href: '/' },
-            { label: 'Tutorials', href: '/tutorials' },
-            { label: 'Sorting Text', href: '/tutorials/sort-text-alphabetically' }
+            { label: 'Blog', href: '/blog' },
+            { label: 'Sorting Text', href: '/blog/how-to-sort-text-alphabetically' }
           ]}
         />
       </div>

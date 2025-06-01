@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 import Breadcrumbs from '@/components/Breadcrumbs'
-import ArticleHeader from '@/components/tutorials/ArticleHeader'
-import ToolPromo from '@/components/tutorials/ToolPromo'
+import ArticleHeader from '@/components/blog/ArticleHeader'
+import ToolPromo from '@/components/blog/ToolPromo'
 
 
 export const metadata: Metadata = {
@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: 'Learn multiple methods to count words accurately with our step-by-step guide. Discover online tools and manual techniques for word counting.',
   keywords: 'how to count Words, count words tutorial',
   alternates: {
-    canonical: 'https://www.texttoolspro.com/tutorials/count-words-accurately'
+    canonical: 'https://www.texttoolspro.com/blog/how-to-count-words-accurately'
   }
 }
 
@@ -68,8 +68,8 @@ export default function SortTextTutorial() {
         <Breadcrumbs 
           items={[
             { label: 'Home', href: '/' },
-            { label: 'Tutorials', href: '/tutorials' },
-            { label: 'Sorting Text', href: '/tutorials/count-words-accurately' }
+            { label: 'Blog', href: '/blog' },
+            { label: 'Sorting Text', href: '/blog/how-to-count-words-accurately' }
           ]}
         />
       </div>

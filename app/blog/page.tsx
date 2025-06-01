@@ -7,40 +7,69 @@ import Pagination from '@/components/blog/Pagination'
 const blogPosts = [
   {
     id: 1,
-    title: "10 Essential SEO Writing Tips to Boost Your Content Rankings",
-    excerpt: "Discover the most effective SEO writing techniques that will help your content rank higher in search engines and attract more organic traffic to your website.",
-    category: "SEO",
-    slug: "seo-writing-tips"
-  },
-  {
-    id: 2,
-    title: "7 Writing Productivity Hacks That Will Double Your Output",
-    excerpt: "Learn proven strategies from professional writers to overcome writer's block, maintain focus, and dramatically increase your writing productivity.",
-    category: "Writing",
-    slug: "writing-productivity-hacks"
-  },
-  {
-    id: 3,
-    title: "The Ultimate Guide to Using Our Word Counter Tool Effectively",
-    excerpt: "Get the most out of our word counter tool with these advanced tips and tricks for writers, students, and content creators.",
+    title: "How to Sort Text Alphabetically",
+    description: "Learn multiple methods to sort text in alphabetical order",
     category: "Tools",
-    slug: "word-counter-guide"
+    href: "/blog/how-to-sort-text-alphabetically",
+//    image: "/images/sorting-tutorial.jpg"
   },
   {
-    id: 4,
-    title: "Top 5 Grammar Checkers Compared: Which One Is Right for You?",
-    excerpt: "We tested and compared the most popular grammar checking tools to help you find the perfect one for your writing needs and budget.",
+    title: "How to Count Words Accurately",
+    description: "Learn multiple methods to count words accurately",
     category: "Tools",
-    slug: "grammar-checkers-comparison"
-  },
-  {
-    id: 5,
-    title: "Content Marketing Trends You Can't Afford to Ignore in 2025",
-    excerpt: "Stay ahead of the competition with these emerging content marketing trends that are shaping the digital landscape this year.",
-    category: "Marketing",
-    slug: "content-marketing-trends"
+    href: "/blog/how-to-count-words-accurately",
+//    image: "/images/remove-duplicates-tutorial.jpg"
+//  },
+//  {
+//    title: "Changing Text Case",
+//    description: "Properly format text cases for professional documents",
+//    href: "/tutorials/change-text-case",
+//    image: "/images/case-conversion-tutorial.jpg"
+//  },
+//  {
+//    title: "Accurate Word Counting",
+//    description: "Master word counting for writing assignments and SEO",
+//    href: "/tutorials/count-words",
+//    image: "/images/count-words-tutorial.jpg"
   }
 ]
+
+//const blogPosts = [
+//  {
+//    id: 1,
+//    title: "How to Count Words in Google Docs, Word & Online (Free Tools)",
+//    excerpt: "Whether you're writing an essay, blog post, or social media caption, hitting the right word count matters. Here's how to count words in Google Docs, Microsoft Word, and with our free online tool—no login required!",
+//    slug: "how-to-count-words-in-google-docs-word-and-online"
+//  },
+//  {
+//    id: 2,
+//    title: "7 Writing Productivity Hacks That Will Double Your Output",
+//    excerpt: "Learn proven strategies from professional writers to overcome writer's block, maintain focus, and dramatically increase your writing productivity.",
+//    category: "Writing",
+//    slug: "writing-productivity-hacks"
+//  },
+//  {
+//    id: 3,
+//    title: "The Ultimate Guide to Using Our Word Counter Tool Effectively",
+//    excerpt: "Get the most out of our word counter tool with these advanced tips and tricks for writers, students, and content creators.",
+//    category: "Tools",
+//    slug: "word-counter-guide"
+//  },
+//  {
+//    id: 4,
+//    title: "Top 5 Grammar Checkers Compared: Which One Is Right for You?",
+//    excerpt: "We tested and compared the most popular grammar checking tools to help you find the perfect one for your writing needs and budget.",
+//    category: "Tools",
+//    slug: "grammar-checkers-comparison"
+//  },
+//  {
+//    id: 5,
+//    title: "Content Marketing Trends You Can't Afford to Ignore in 2025",
+//    excerpt: "Stay ahead of the competition with these emerging content marketing trends that are shaping the digital landscape this year.",
+//    category: "Marketing",
+//    slug: "content-marketing-trends"
+//  }
+//]
 
 export default function BlogPage() {
   return (
@@ -66,15 +95,15 @@ export default function BlogPage() {
               <BlogPostCard
                 key={post.id}
                 title={post.title}
-                excerpt={post.excerpt}
+                description={post.description}
                 category={post.category}
-                slug={post.slug}
+                href={post.href}
               />
             ))}
             
             <Pagination 
               currentPage={1}
-              totalPages={5}
+              totalPages={1}
             />
           </div>
           
