@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import ArticleHeader from '@/components/blog/ArticleHeader'
-import ToolPromo from '@/components/blog/ToolPromo'
+import ToolPromo from '@/components/ToolPromo'
 
 
 export const metadata: Metadata = {
