@@ -7,6 +7,14 @@ import Pagination from '@/components/blog/Pagination'
 const blogPosts = [
   {
     id: 1,
+    title: "How to Count Words Accurately",
+    description: "Learn multiple methods to count words accurately",
+    category: "Tools",
+    href: "/blog/how-to-count-words-accurately",
+//    image: "/images/remove-duplicates-tutorial.jpg"
+  },
+  {
+    id: 2,
     title: "How to Sort Text Alphabetically",
     description: "Learn multiple methods to sort text in alphabetical order",
     category: "Tools",
@@ -14,16 +22,11 @@ const blogPosts = [
 //    image: "/images/sorting-tutorial.jpg"
   },
   {
-    title: "How to Count Words Accurately",
-    description: "Learn multiple methods to count words accurately",
-    category: "Tools",
-    href: "/blog/how-to-count-words-accurately",
-//    image: "/images/remove-duplicates-tutorial.jpg"
-//  },
-//  {
-//    title: "Changing Text Case",
-//    description: "Properly format text cases for professional documents",
-//    href: "/tutorials/change-text-case",
+    id: 3,
+    title: "Why Word Count Matters",
+    description: "Discover why word count matters in essays, books & blogs—plus smart tools to track it effortlessly. Improve your writing today!",
+    category: "Writing",
+    href: "blog/why-word-count-matters",
 //    image: "/images/case-conversion-tutorial.jpg"
 //  },
 //  {

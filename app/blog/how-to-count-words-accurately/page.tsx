@@ -13,13 +13,12 @@ export const metadata: Metadata = {
   }
 }
 
-export default function SortTextTutorial() {
+export default function HowtoCountWords() {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "HowTo",
     "name": "How to Count Words Accurately",
     "description": "Step-by-step guide to counting words using online tools and manual methods",
-    "totalTime": "PT5M",
     "supply": ["Word Counter", "Web browser"],
     "tool": ["TextToolsPro Word Counter"],
     "step": [
@@ -69,7 +68,7 @@ export default function SortTextTutorial() {
           items={[
             { label: 'Home', href: '/' },
             { label: 'Blog', href: '/blog' },
-            { label: 'Sorting Text', href: '/blog/how-to-count-words-accurately' }
+            { label: 'How to Count Words', href: '/blog/how-to-count-words-accurately' }
           ]}
         />
       </div>
@@ -183,9 +182,8 @@ export default function SortTextTutorial() {
                 <li>In Word: Use &quot;Insert → Object → Text from File&quot; to combine documents</li>
                 <li>Premium users can upload multiple files simultaneously</li>
             </ul>
-            
-        </div>
-    </article>    
+          </div>
+        </article>    
       </main>
     </>
   )

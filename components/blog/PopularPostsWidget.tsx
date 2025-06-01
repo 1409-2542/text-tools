@@ -4,18 +4,18 @@ import styles from './PopularPostsWidget.module.css'
 const popularPosts = [
   {
     id: 1,
-    title: "10 Essential SEO Writing Tips",
-    slug: "seo-writing-tips"
+    title: "How to Sort Text Alphabetically",
+    slug: "how-to-sort-text-alphabetically"
   },
   {
     id: 2,
-    title: "Word Counter Tool Guide",
-    slug: "word-counter-guide"
-  },
+    title: "How to Count Words Accurately",
+    slug: "how-to-count-words-accurately"
+ },
   {
     id: 3,
-    title: "Top 5 Grammar Checkers",
-    slug: "grammar-checkers-comparison"
+    title: "Why Word Count Matters",
+    slug: "why-word-count-matters"
   }
 ]
 
