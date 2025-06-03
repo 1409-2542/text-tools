@@ -25,11 +25,7 @@ export default function WordCounterTool() {
   // Memoize all counting functions
   const countWords = useCallback((text: string) => {
     if (!text.trim()) return 0
-    // Handle languages without spaces (Chinese, Japanese, etc.)
-    const hasSpaces = /\s/.test(text)
-    return hasSpaces 
-      ? text.trim().split(/\s+/).length 
-      : text.trim().length
+    return text.trim().split(/\s+/).length 
   }, [])
 
   const countCharacters = useCallback((text: string) => text.length, [])

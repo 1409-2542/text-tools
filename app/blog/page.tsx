@@ -28,11 +28,13 @@ const blogPosts = [
     category: "Writing",
     href: "blog/why-word-count-matters",
 //    image: "/images/case-conversion-tutorial.jpg"
-//  },
-//  {
-//    title: "Accurate Word Counting",
-//    description: "Master word counting for writing assignments and SEO",
-//    href: "/tutorials/count-words",
+  },
+  {
+    id: 4,
+    title: "How Many Pages is 1000 Words?",
+    description: "Struggling with page limits? Learn exactly how 250 to 5000 words convert to pages (single/double-spaced) + font tips. Includes free word counter tool.",
+    category: "Writing",
+    href: "blog/how-many-pages-is-1000-words",
 //    image: "/images/count-words-tutorial.jpg"
   }
 ]
