@@ -5,7 +5,7 @@ import styles from './WordCounterTool.module.css'
 import ToolSidebar from "@/components/ToolSidebar";
 import ToolPromo from '@/components/ToolPromo'
 import { FaRegLightbulb } from 'react-icons/fa'
-import { FiClock, FiTrash2 } from 'react-icons/fi'
+import { FiClock, FiTrash2, FiCopy } from 'react-icons/fi'
 
 interface Counts {
   words: number;
@@ -64,12 +64,7 @@ export default function WordCounterTool() {
       charactersNoSpaces: countCharactersNoSpaces(text),
       lastUpdated: new Date(),
     }
-  }, [
-    text, 
-    countWords, 
-    countCharacters, 
-    countCharactersNoSpaces, 
-  ])
+  }, [text, countWords, countCharacters, countCharactersNoSpaces])
   
   // Handle typing timeout for performance
   useEffect(() => {
@@ -92,7 +87,6 @@ export default function WordCounterTool() {
   const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setText(e.target.value)
     setIsTyping(true)
-    // Clear selection when text changes
     setSelectedText('')
     setSelectionCounts(null)
   }
@@ -104,17 +98,45 @@ export default function WordCounterTool() {
     setSelectionCounts(null)
   }
 
-  const BasicResults = () => (
-    <div className={styles.resultsContainer}>
-      <div className={styles.resultCard}>
-        <div className={styles.resultValue}>
-          {selectionCounts ? selectionCounts.words.toLocaleString() : counts.words.toLocaleString()}
-        </div>
-        <div className={styles.resultLabel}>Words</div>
-      </div> 
+  const handleCopy = () => {
+    navigator.clipboard.writeText(text)
+    setCopySuccess(true)
+  }
+
+  // New compact components
+  const CompactHeader = () => (
+    <div className={styles.compactHeader}>
+      <div className={styles.compactCounts}>
+        <h2>
+          {selectionCounts ? selectionCounts.words.toLocaleString() : counts.words.toLocaleString()} words 
+          {selectionCounts && (
+            <span className={styles.selectionIndicator}> (selection)</span>
+          )}
+        </h2>
+      </div>
+      <div className={styles.compactActions}>
+        <button className={styles.compactButton} onClick={clearText} disabled={!text}>
+          <FiTrash2 /> Clear
+        </button>
+        <button className={styles.compactButton} onClick={handleCopy} disabled={!text}>
+          <FiCopy /> Copy
+        </button>
+      </div>
     </div>
-  )  
-  
+  )
+
+  const MinimalFooter = () => (
+    <div className={styles.minimalFooter}>
+      <div className={styles.footerStats}>
+        <span>
+          <strong>{selectionCounts ? selectionCounts.words.toLocaleString() : counts.words.toLocaleString()}</strong> words • 
+          <strong>{selectionCounts ? selectionCounts.characters.toLocaleString() : counts.characters.toLocaleString()}</strong> characters •
+          <strong>{selectionCounts ? selectionCounts.charactersNoSpaces.toLocaleString() : counts.charactersNoSpaces.toLocaleString()}</strong> characters without spaces
+        </span>
+      </div>
+    </div>
+  )
+
   return (
     <main className="container">
       <section className={styles.toolHeader}>
@@ -124,16 +146,9 @@ export default function WordCounterTool() {
       
       <div id="word-counter" className={styles.toolContainer}>
         <div className={styles.toolMain}>
-          <div>
-            <BasicResults />
-          </div>          
+          <CompactHeader />
+          
           <div className={styles.textInputContainer}>
-            <label htmlFor="text-input" className={styles.inputLabel}>
-              Paste or type your text below (up to 100,000 characters):
-              <span className={styles.charCounter}>
-                {text.length.toLocaleString()}/100,000 characters
-              </span>
-            </label>
             <textarea
               id="text-input"
               ref={textareaRef}
@@ -151,46 +166,7 @@ export default function WordCounterTool() {
             )}
           </div>
 
-          <div className={styles.inputFooter}>
-                <button 
-                  className={`${styles.btn} ${styles.btnSecondary} ${styles.btnSmall}`}
-                  onClick={clearText}
-                  disabled={!text}
-                  aria-label="Clear text"
-                >
-                  <FiTrash2 className={styles.btnIcon} />
-                  Clear Text
-                </button>
-              <div className={styles.lastUpdated}>
-                {lastUpdated && !isTyping && (
-                  <>
-                    <FiClock className={styles.statusIcon} />
-                    Last updated: {lastUpdated.toLocaleTimeString()}
-                  </>
-                )}
-                {isTyping && (
-                  <>
-                    <FaRegLightbulb className={styles.statusIcon} />
-                    Typing...
-                  </>
-                )}
-              </div>
-          </div>         
-          
-          <div className={styles.resultsContainer}>
-            <div className={styles.resultCard}>
-              <div className={styles.resultValue}>
-                {selectionCounts ? selectionCounts.characters.toLocaleString() : counts.characters.toLocaleString()}
-              </div>
-              <div className={styles.resultLabel}>Characters</div>
-            </div>
-            <div className={styles.resultCard}>
-              <div className={styles.resultValue}>
-                {selectionCounts ? selectionCounts.charactersNoSpaces.toLocaleString() : counts.charactersNoSpaces.toLocaleString()}
-              </div>
-              <div className={styles.resultLabel}>Characters (no spaces)</div>
-            </div>
-          </div>
+          <MinimalFooter />       
           
           <div className={styles.toolDescription}>
             <h2>Why Use Our Word Counter?</h2>

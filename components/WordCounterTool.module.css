@@ -240,3 +240,70 @@
   font-size: 1rem;
   color: #666;
 }
+
+/* Compact Header */
+.compactHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.compactCounts h2 {
+  margin: 0;
+  font-size: 2.4rem;
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.selectionIndicator {
+  font-size: 0.8rem;
+  color: #666;
+  margin-left: 0.5rem;
+}
+
+.compactActions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.compactButton {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.3rem 0.6rem;
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.compactButton:hover {
+  background: #eee;
+}
+
+/* Minimal Footer */
+.minimalFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  margin-top: 1rem;
+  border-top: 1px solid #eee;
+  font-size: 1.4rem;
+  color: #666;
+}
+
+.footerStats strong {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.lastUpdated {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
