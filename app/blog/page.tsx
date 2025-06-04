@@ -7,20 +7,20 @@ import Pagination from '@/components/blog/Pagination'
 const blogPosts = [
   {
     id: 1,
-    title: "How to Count Words Accurately",
-    description: "Learn multiple methods to count words accurately",
-    category: "Tools",
-    href: "/blog/how-to-count-words-accurately",
-//    image: "/images/remove-duplicates-tutorial.jpg"
+    title: "Blog Post Length for SEO in 2025: Does Word Count Affect Rankings?",
+    description: "Wondering how long your blog posts should be for SEO? Discover the ideal word count, why it matters, and data-backed strategies to rank higher in 2025.",
+    category: "SEO",
+    href: "blog/blog-post-length-for-seo",
+//    image: "/images/count-words-tutorial.jpg"
   },
   {
     id: 2,
-    title: "How to Sort Text Alphabetically",
-    description: "Learn multiple methods to sort text in alphabetical order",
-    category: "Tools",
-    href: "/blog/how-to-sort-text-alphabetically",
-//    image: "/images/sorting-tutorial.jpg"
-  },
+    title: "How Many Pages is 1000 Words?",
+    description: "Struggling with page limits? Learn exactly how 250 to 5000 words convert to pages (single/double-spaced) + font tips. Includes free word counter tool.",
+    category: "Writing",
+    href: "blog/how-many-pages-is-1000-words",
+//    image: "/images/count-words-tutorial.jpg"
+  },  
   {
     id: 3,
     title: "Why Word Count Matters",
@@ -28,14 +28,22 @@ const blogPosts = [
     category: "Writing",
     href: "blog/why-word-count-matters",
 //    image: "/images/case-conversion-tutorial.jpg"
-  },
+  },  
   {
     id: 4,
-    title: "How Many Pages is 1000 Words?",
-    description: "Struggling with page limits? Learn exactly how 250 to 5000 words convert to pages (single/double-spaced) + font tips. Includes free word counter tool.",
-    category: "Writing",
-    href: "blog/how-many-pages-is-1000-words",
-//    image: "/images/count-words-tutorial.jpg"
+    title: "How to Count Words Accurately",
+    description: "Learn multiple methods to count words accurately",
+    category: "Tools",
+    href: "/blog/how-to-count-words-accurately",
+//    image: "/images/remove-duplicates-tutorial.jpg"
+  },  
+  {
+    id: 5,
+    title: "How to Sort Text Alphabetically",
+    description: "Learn multiple methods to sort text in alphabetical order",
+    category: "Tools",
+    href: "/blog/how-to-sort-text-alphabetically",
+//    image: "/images/sorting-tutorial.jpg"
   }
 ]
 
