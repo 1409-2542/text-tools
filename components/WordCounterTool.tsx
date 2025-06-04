@@ -4,8 +4,7 @@ import { useState, useEffect, useCallback, useMemo, useRef } from 'react'
 import styles from './WordCounterTool.module.css'
 import ToolSidebar from "@/components/ToolSidebar";
 import ToolPromo from '@/components/ToolPromo'
-import { FaRegLightbulb } from 'react-icons/fa'
-import { FiClock, FiTrash2, FiCopy } from 'react-icons/fi'
+import { FiTrash2, FiCopy } from 'react-icons/fi'
 
 interface Counts {
   words: number;
@@ -15,8 +14,6 @@ interface Counts {
 
 export default function WordCounterTool() {
   const [text, setText] = useState('')
-  const [lastUpdated, setLastUpdated] = useState<Date | null>(null)
-  const [isTyping, setIsTyping] = useState(false)
   const [copySuccess, setCopySuccess] = useState(false)
   const [selectedText, setSelectedText] = useState('')
   const [selectionCounts, setSelectionCounts] = useState<Counts | null>(null)
@@ -66,16 +63,6 @@ export default function WordCounterTool() {
     }
   }, [text, countWords, countCharacters, countCharactersNoSpaces])
   
-  // Handle typing timeout for performance
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsTyping(false)
-      setLastUpdated(new Date())
-    }, 500)
-    
-    return () => clearTimeout(timer)
-  }, [text])
-
   // Reset copy success message after 3 seconds
   useEffect(() => {
     if (copySuccess) {
@@ -86,14 +73,12 @@ export default function WordCounterTool() {
 
   const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setText(e.target.value)
-    setIsTyping(true)
     setSelectedText('')
     setSelectionCounts(null)
   }
 
   const clearText = () => {
     setText('')
-    setLastUpdated(new Date())
     setSelectedText('')
     setSelectionCounts(null)
   }
