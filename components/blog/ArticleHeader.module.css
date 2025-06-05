@@ -9,6 +9,14 @@
   color: var(--dark-color);
 }
 
+.subtitle {
+  font-size: 1.25rem;
+  color: #666;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+  font-weight: 400;
+}
+
 .articleMeta {
   display: flex;
   align-items: center;
@@ -22,6 +30,11 @@
   .articleHeader h1 {
     font-size: 2rem;
   }
+  
+  .subtitle {
+    font-size: 1.1rem;
+  }
+  
   
   .articleMeta {
     flex-direction: column;

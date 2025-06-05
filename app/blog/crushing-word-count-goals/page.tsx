@@ -60,7 +60,7 @@ export default function WordCountGoalsPage() {
             />     
 
             <div className="article-content">
-              <p><strong>Struggling to stay consistent with your writing?</strong> Whether you're drafting a novel, academic paper, or blog content, hitting <strong>daily word count goals</strong> is the key to long-term success. The secret? Combining smart strategies with the right tools.</p>
+              <p><strong>Struggling to stay consistent with your writing?</strong> Whether you&apos;re drafting a novel, academic paper, or blog content, hitting <strong>daily word count goals</strong> is the key to long-term success. The secret? Combining smart strategies with the right tools.</p>
               <p>Learn how small, consistent efforts lead to big writing results</p>
 
               <h2>📊 Why Word Count Goals Matter (The Science Behind It)</h2>
@@ -72,7 +72,7 @@ export default function WordCountGoalsPage() {
               </ul>
 
               <NoteBox>
-                <p><strong>Pro Tip:</strong> The "200 Words/Day" challenge helps build habits—that's just 1-2 paragraphs!</p>
+                <p><strong>Pro Tip:</strong> The &quot;200 Words/Day&quot; challenge helps build habits—that&apos;s just 1-2 paragraphs!</p>
               </NoteBox>
 
               <h2>🚀 5 Strategies to Hit Your Daily Writing Targets</h2>
@@ -150,7 +150,7 @@ export default function WordCountGoalsPage() {
 
               <h2>❓ Frequently Asked Questions</h2>
               
-              <h3>1. What's a realistic daily word count goal?</h3>
+              <h3>1. What&apos;s a realistic daily word count goal?</h3>
               <p>Beginners: 300-500 words. Professionals: 1,000-2,000. The key is <strong>consistency over intensity</strong>.</p>
               
               <h3>2. Should I count editing words?</h3>

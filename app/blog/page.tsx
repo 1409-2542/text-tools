@@ -7,6 +7,22 @@ import Pagination from '@/components/blog/Pagination'
 const blogPosts = [
   {
     id: 1,
+    title: "How to Crush Your Daily Word Count Goals?",
+    description: "Learn 5 proven strategies to hit your daily word count targets + how our free word counter tool helps writers stay on track.",
+    category: "Writing",
+    href: "blog/crushing-word-count-goals",
+//    image: "/images/case-conversion-tutorial.jpg"
+  },
+    {
+    id: 2,
+    title: "Word Count & SEO in 2025: The Truth (+5 Data-Backed Tips)",
+    description: "Does word count still matter for SEO? New 2025 data reveals how content length affects rankings + 5 actionable fixes to optimize your posts.",
+    category: "SEO",
+    href: "blog/word-count-seo-2025",
+//    image: "/images/count-words-tutorial.jpg"
+  }, 
+  {
+    id: 3,
     title: "Blog Post Length for SEO in 2025: Does Word Count Affect Rankings?",
     description: "Wondering how long your blog posts should be for SEO? Discover the ideal word count, why it matters, and data-backed strategies to rank higher in 2025.",
     category: "SEO",
@@ -14,7 +30,7 @@ const blogPosts = [
 //    image: "/images/count-words-tutorial.jpg"
   },
   {
-    id: 2,
+    id: 4,
     title: "How Many Pages is 1000 Words?",
     description: "Struggling with page limits? Learn exactly how 250 to 5000 words convert to pages (single/double-spaced) + font tips. Includes free word counter tool.",
     category: "Writing",
@@ -22,7 +38,7 @@ const blogPosts = [
 //    image: "/images/count-words-tutorial.jpg"
   },  
   {
-    id: 3,
+    id: 5,
     title: "Why Word Count Matters",
     description: "Discover why word count matters in essays, books & blogs—plus smart tools to track it effortlessly. Improve your writing today!",
     category: "Writing",
@@ -30,7 +46,7 @@ const blogPosts = [
 //    image: "/images/case-conversion-tutorial.jpg"
   },  
   {
-    id: 4,
+    id: 6,
     title: "How to Count Words Accurately",
     description: "Learn multiple methods to count words accurately",
     category: "Tools",
@@ -38,7 +54,7 @@ const blogPosts = [
 //    image: "/images/remove-duplicates-tutorial.jpg"
   },  
   {
-    id: 5,
+    id: 7,
     title: "How to Sort Text Alphabetically",
     description: "Learn multiple methods to sort text in alphabetical order",
     category: "Tools",
