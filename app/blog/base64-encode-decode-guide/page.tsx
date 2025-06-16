@@ -90,7 +90,6 @@ const structuredData = {
           <article>
             <ArticleHeader 
               title="Base64 Decoded: The No-BS Guide for Developers"
-              subtitle="Because 'SGVsbG8=' shouldn't make you say 'WTF?'"
             />     
 
             <div className="article-content">
