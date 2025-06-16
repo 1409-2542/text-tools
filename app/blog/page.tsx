@@ -18,7 +18,7 @@ const blogPosts = [
     title: "Essay Word Count Hacks: Hit the Right Length",
     description: "Struggling with essay length? Learn exactly how to hit 1,000+ words without filler + trim long drafts fast. Includes free word counter tool for students.",
     category: "Writing",
-    href: "blog/essay-word-count-hacks",
+    href: "blog/college-essay-word-count-guide",
 //    image: "/images/case-conversion-tutorial.jpg"
   },
   {
