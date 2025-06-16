@@ -14,82 +14,83 @@ export const metadata: Metadata = {
 }
 
 export default function Base64GuidePage() {
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Is Base64 secure for passwords?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No - Base64 is encoding, not encryption. For passwords, use bcrypt or scrypt."
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is Base64 secure for passwords?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No - Base64 is encoding, not encryption. For passwords, use bcrypt or scrypt."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How to make Base64 URL-safe?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Replace + with - and / with _. Our Base64 tool has a URL-safe option built in."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is Base64 encoding used for?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Base64 is used to safely transmit binary data (like images or files) in text-based formats like JSON or URLs."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Base64 the same as encryption?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Base64 is not secure or encrypted — it just converts data into a readable text format. Use encryption methods like AES or bcrypt for security."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why does Base64 end with '='?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The '=' is padding to ensure the Base64 string is a multiple of 4 characters, required by the decoding algorithm."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How to decode Base64 in JavaScript?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Use atob('base64string') in JavaScript to decode Base64 to plain text."
+        }
       }
-    },
-    {
-      "@type": "Question",
-      "name": "How to make Base64 URL-safe?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Replace + with - and / with _. Our Base64 tool has a URL-safe option built in."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is Base64 encoding used for?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Base64 is used to safely transmit binary data (like images or files) in text-based formats like JSON or URLs."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is Base64 the same as encryption?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. Base64 is not secure or encrypted — it just converts data into a readable text format. Use encryption methods like AES or bcrypt for security."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Why does Base64 end with '='?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The '=' is padding to ensure the Base64 string is a multiple of 4 characters, required by the decoding algorithm."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How to decode Base64 in JavaScript?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Use atob('base64string') in JavaScript to decode Base64 to plain text."
-      }
-    }
-  ]
-}
+    ]
+  }
 
-return (
-  <>
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-    />
-    <div className="container">
-      <Breadcrumbs 
-        items={[
-          { label: 'Home', href: '/' },
-          { label: 'Blog', href: '/blog' },
-          { label: 'Base64 Guide', href: '/blog/base64-encode-decode-guide' }
-        ]}
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-    </div>
+      <div className="container">
+        <Breadcrumbs 
+          items={[
+            { label: 'Home', href: '/' },
+            { label: 'Blog', href: '/blog' },
+            { label: 'Base64 Guide', href: '/blog/base64-encode-decode-guide' }
+          ]}
+        />
+      </div>
 
-    <main className="container">
-              <div className="blog-main">
+      <main className="container">
+        <div className="blog-main">
           <article>
             <ArticleHeader 
               title="Base64 Decoded: The No-BS Guide for Developers"
+              subtitle="Because 'SGVsbG8=' shouldn't make you say 'WTF?'"
             />     
 
             <div className="article-content">
@@ -131,7 +132,7 @@ return (
 
               <h3>Python</h3>
               <pre className="bg-gray-100 p-3 rounded-md text-sm overflow-x-auto">
-                {`import base64\nbase64.b64encode(b"Hello World").decode('utf-8')  # Encode\nbase64.b64decode("SGVsbG8gV29ybGQ=").decode('utf-8')  # Decode`}
+                {`import base64\nbase64.b64encode(b"Hello World").decode('utf-8')  // Encode\nbase64.b64decode("SGVsbG8gV29ybGQ=").decode('utf-8')  // Decode`}
               </pre>
 
               <ToolPromo 
@@ -139,7 +140,7 @@ return (
                 title="Debug Instantly"
                 description="Paste these into our live decoder to:"
                 buttonText="Try Base64 Tool Now"
-                href="/base64-encode-decode?ref=base64-encode-decode-guide">
+                href="/base64-encode-decode?ref=base64-encode-decode-guide"
               />
 
               <h2>🚨 3 Base64 Pitfalls (Fix Before Production)</h2>
@@ -210,7 +211,7 @@ return (
             </div>      
           </article>
         </div>
-    </main>
-  </>
-)
+      </main>
+    </>
+  )
 }
