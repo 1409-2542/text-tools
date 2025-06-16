@@ -75,7 +75,7 @@ const structuredData = {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      <div className="container">
+      <div className="container"> 
         <Breadcrumbs 
           items={[
             { label: 'Home', href: '/' },
