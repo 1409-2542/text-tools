@@ -45,11 +45,11 @@ export default function EssayWordCountPage() {
       />
       <div className="container">
         <Breadcrumbs 
-          items=[
+          items={[
             { label: 'Home', href: '/' },
             { label: 'Blog', href: '/blog' },
             { label: 'College Essay Word Count Guide', href: '/blog/college-essay-word-count-guide' }
-          ]
+          ]}
         />
       </div>
 
@@ -66,7 +66,7 @@ export default function EssayWordCountPage() {
                 <strong>Quick Answer:</strong> A 5-page essay is about 1,250 words (double-spaced). Use our <a href="/word-counter?ref=college-essay-word-count-guide" className="text-blue-600 hover:underline">free essay word counter</a> to check instantly.
               </div>
 
-              <p>Struggling to hit the right word count for your college essay? Whether you're under or over the limit, this guide gives you practical tools and tactics to fix it fast—without padding your writing.</p>
+              <p>Struggling to hit the right word count for your college essay? Whether you&apos;re under or over the limit, this guide gives you practical tools and tactics to fix it fast—without padding your writing.</p>
 
               <h2>📏 How Many Words Is a College Essay?</h2>
               <p>Most college essays range between 1,000 and 1,500 words. Here’s a breakdown of what that looks like in pages:</p>
@@ -93,7 +93,7 @@ export default function EssayWordCountPage() {
               </div>
 
               <NoteBox>
-                <p><strong>Pro Tip:</strong> If your professor says "5 pages," they likely mean ~1,250 words (double-spaced). Paste your essay into our <a href="/word-counter?ref=college-essay-word-count-guide" className="text-blue-600 hover:underline">Word Counter</a> to check before submitting.</p>
+                <p><strong>Pro Tip:</strong> If your professor says &quot;5 pages,&quot; they likely mean ~1,250 words (double-spaced). Paste your essay into our <a href="/word-counter?ref=college-essay-word-count-guide" className="text-blue-600 hover:underline">Word Counter</a> to check before submitting.</p>
               </NoteBox>
 
               <h2>✍️ How to Increase Essay Word Count Without Fluff</h2>
@@ -113,7 +113,7 @@ export default function EssayWordCountPage() {
 
               <h2>✂️ How to Trim an Essay That’s Too Long</h2>
               <ul>
-                <li>Remove filler phrases ("in today's society...")</li>
+                <li>Remove filler phrases (&quot;in today&apos;s society...&quot;)</li>
                 <li>Replace passive voice with active</li>
                 <li>Cut redundant transitions</li>
               </ul>
