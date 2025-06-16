@@ -69,24 +69,24 @@ const structuredData = {
   ]
 }
 
-  return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+return (
+  <>
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+    />
+    <div className="container">
+      <Breadcrumbs 
+        items={[
+          { label: 'Home', href: '/' },
+          { label: 'Blog', href: '/blog' },
+          { label: 'Base64 Guide', href: '/blog/base64-encode-decode-guide' }
+        ]}
       />
-      <div className="container"> 
-        <Breadcrumbs 
-          items={[
-            { label: 'Home', href: '/' },
-            { label: 'Blog', href: '/blog' },
-            { label: 'Base64 Guide', href: '/blog/base64-encode-decode-guide' }
-          ]}
-        />
-      </div>
+    </div>
 
-      <main className="container">
-        <div className="blog-main">
+    <main className="container">
+              <div className="blog-main">
           <article>
             <ArticleHeader 
               title="Base64 Decoded: The No-BS Guide for Developers"
@@ -210,8 +210,7 @@ const structuredData = {
             </div>      
           </article>
         </div>
-
-      </main>
-    </>
-  )
+    </main>
+  </>
+)
 }
