@@ -74,7 +74,7 @@ const structuredData = {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-      ></script>
+      />
       <div className="container">
         <Breadcrumbs 
           items={[
@@ -109,7 +109,7 @@ const structuredData = {
               </div>
 
               <NoteBox>
-                <p><strong>Pro Tip:</strong> Use our <a href="/base64-encode-decode?ref=base64-encode-decode-guide"> className="text-blue-600 hover:underline">Base64 tool</a> to test snippets before coding. Saves 10x &quot;why isn&apos;t this working?!&quot; moments.</p>
+                <p><strong>Pro Tip:</strong> Use our <a href="/base64-encode-decode?ref=base64-encode-decode-guide" className="text-blue-600 hover:underline">Base64 tool</a> to test snippets before coding. Saves 10x &quot;why isn&apos;t this working?!&quot; moments.</p>
               </NoteBox>
 
               <h2>⚡ Base64 in 3 Bullets</h2>
@@ -155,7 +155,7 @@ const structuredData = {
 
               <h3>3. Memory Meltdowns</h3>
               <p><strong>❌ Problem</strong>: Encoding 100MB files crashes your app</p>
-              <p><strong>✅ Fix</strong>: Stream chunks (or use <a href="/base64-encode-decode?ref=base64-encode-decode-guide">className="text-blue-600 hover:underline">our tool</a> for big files)</p>
+              <p><strong>✅ Fix</strong>: Stream chunks (or use <a href="/base64-encode-decode?ref=base64-encode-decode-guide" className="text-blue-600 hover:underline">our tool</a> for big files)</p>
 
               <h2>🔗 When to Use Base64 vs. Alternatives</h2>
               <div className="overflow-x-auto">
@@ -193,12 +193,12 @@ const structuredData = {
               <p>Padding to hit 4-character blocks. Some libs need it, others don&apos;t.</p>
 
               <h3>&quot;How to decode without libraries?&quot;</h3>
-              <p><a href="/base64-encode-decode?ref=base64-encode-decode-guide"> className="text-blue-600 hover:underline">Our free tool</a> or build the 6-bit lookup table (but... why?).</p>
+              <p><a href="/base64-encode-decode?ref=base64-encode-decode-guide" className="text-blue-600 hover:underline">Our free tool</a> or build the 6-bit lookup table (but... why?).</p>
 
               <h2>💡 Final Tip: Debug Faster</h2>
               <ol className="list-decimal pl-5 space-y-1">
                 <li><strong>Encode</strong> your test string</li>
-                <li><strong>Paste</strong> into <a href="/base64-encode-decode?ref=base64-encode-decode-guide"> className="text-blue-600 hover:underline">our decoder</a></li>
+                <li><strong>Paste</strong> into <a href="/base64-encode-decode?ref=base64-encode-decode-guide" className="text-blue-600 hover:underline">our decoder</a></li>
                 <li><strong>Compare</strong> outputs → spot mismatches instantly</li>
               </ol>
 
