@@ -5,37 +5,69 @@ import ToolPromo from '@/components/ToolPromo'
 import NoteBox from '@/components/blog/NoteBox'
 
 export const metadata: Metadata = {
-  title: 'Base64 Decoded: The No-BS Guide for Developers | TextToolsPro',
-  description: 'Base64 encoding/decoding explained without the fluff. Get practical examples, language cheatsheets, and a free tool to convert instantly.',
-  keywords: 'base64 encode decode, base64 example, base64 javascript, base64 python, base64 url safe, online base64 converter',
+  title: 'Base64 Encode/Decode Guide + Free Online Converter | TextToolsPro',
+  description: 'Learn how Base64 encoding and decoding really works. Get a quick guide, code snippets in JavaScript and Python, and a free Base64 converter tool.',
+  keywords: 'base64 encode decode, base64 tool, base64 converter, base64 javascript, base64 python, base64 url safe',
   alternates: {
-    canonical: 'https://www.texttoolspro.com/blog/base64-guide'
+    canonical: 'https://www.texttoolspro.com/blog/base64-encode-decode-guide'
   }
 }
 
 export default function Base64GuidePage() {
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Is Base64 secure for passwords?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "No - Base64 is encoding, not encryption. For passwords, use bcrypt or scrypt."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How to make Base64 URL-safe?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Replace + with - and / with _. Our Base64 tool has a URL-safe option built in."
-        }
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is Base64 secure for passwords?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No - Base64 is encoding, not encryption. For passwords, use bcrypt or scrypt."
       }
-    ]
-  }
+    },
+    {
+      "@type": "Question",
+      "name": "How to make Base64 URL-safe?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Replace + with - and / with _. Our Base64 tool has a URL-safe option built in."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Base64 encoding used for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Base64 is used to safely transmit binary data (like images or files) in text-based formats like JSON or URLs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Base64 the same as encryption?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Base64 is not secure or encrypted — it just converts data into a readable text format. Use encryption methods like AES or bcrypt for security."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does Base64 end with '='?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The '=' is padding to ensure the Base64 string is a multiple of 4 characters, required by the decoding algorithm."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How to decode Base64 in JavaScript?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use atob('base64string') in JavaScript to decode Base64 to plain text."
+      }
+    }
+  ]
+}
 
   return (
     <>
@@ -48,7 +80,7 @@ export default function Base64GuidePage() {
           items={[
             { label: 'Home', href: '/' },
             { label: 'Blog', href: '/blog' },
-            { label: 'Base64 Guide', href: '/blog/base64-guide' }
+            { label: 'Base64 Guide', href: '/blog/base64-encode-decode-guide' }
           ]}
         />
       </div>
@@ -77,7 +109,7 @@ export default function Base64GuidePage() {
               </div>
 
               <NoteBox>
-                <p><strong>Pro Tip:</strong> Use our <a href="/base64-encode-decode" className="text-blue-600 hover:underline">Base64 tool</a> to test snippets before coding. Saves 10x &quot;why isn&apos;t this working?!&quot; moments.</p>
+                <p><strong>Pro Tip:</strong> Use our <a href="/base64-encode-decode?ref=base64-encode-decode-guide"> className="text-blue-600 hover:underline">Base64 tool</a> to test snippets before coding. Saves 10x &quot;why isn&apos;t this working?!&quot; moments.</p>
               </NoteBox>
 
               <h2>⚡ Base64 in 3 Bullets</h2>
@@ -108,7 +140,7 @@ export default function Base64GuidePage() {
                 title="Debug Instantly"
                 description="Paste these into our live decoder to:"
                 buttonText="Try Base64 Tool Now"
-                href="/base64-encode-decode"
+                href="/base64-encode-decode?ref=base64-encode-decode-guide">
               />
 
               <h2>🚨 3 Base64 Pitfalls (Fix Before Production)</h2>
@@ -123,7 +155,7 @@ export default function Base64GuidePage() {
 
               <h3>3. Memory Meltdowns</h3>
               <p><strong>❌ Problem</strong>: Encoding 100MB files crashes your app</p>
-              <p><strong>✅ Fix</strong>: Stream chunks (or use <a href="/base64-encode-decode" className="text-blue-600 hover:underline">our tool</a> for big files)</p>
+              <p><strong>✅ Fix</strong>: Stream chunks (or use <a href="/base64-encode-decode?ref=base64-encode-decode-guide">className="text-blue-600 hover:underline">our tool</a> for big files)</p>
 
               <h2>🔗 When to Use Base64 vs. Alternatives</h2>
               <div className="overflow-x-auto">
@@ -161,12 +193,12 @@ export default function Base64GuidePage() {
               <p>Padding to hit 4-character blocks. Some libs need it, others don&apos;t.</p>
 
               <h3>&quot;How to decode without libraries?&quot;</h3>
-              <p><a href="/base64-encode-decode" className="text-blue-600 hover:underline">Our free tool</a> or build the 6-bit lookup table (but... why?).</p>
+              <p><a href="/base64-encode-decode?ref=base64-encode-decode-guide"> className="text-blue-600 hover:underline">Our free tool</a> or build the 6-bit lookup table (but... why?).</p>
 
               <h2>💡 Final Tip: Debug Faster</h2>
               <ol className="list-decimal pl-5 space-y-1">
                 <li><strong>Encode</strong> your test string</li>
-                <li><strong>Paste</strong> into <a href="/base64-encode-decode" className="text-blue-600 hover:underline">our decoder</a></li>
+                <li><strong>Paste</strong> into <a href="/base64-encode-decode?ref=base64-encode-decode-guide"> className="text-blue-600 hover:underline">our decoder</a></li>
                 <li><strong>Compare</strong> outputs → spot mismatches instantly</li>
               </ol>
 

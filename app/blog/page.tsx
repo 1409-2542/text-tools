@@ -10,7 +10,7 @@ const blogPosts = [
     title: "Base64 Decoded: The No-BS Guide for Developers",
     description: "Base64 encoding/decoding explained without the fluff. Get practical examples, language cheatsheets, and a free tool to convert instantly.",
     category: "Programming",
-    href: "blog/base64-guide",
+    href: "blog/base64-encode-decode-guide",
 //    image: "/images/case-conversion-tutorial.jpg"
   },  
   {
