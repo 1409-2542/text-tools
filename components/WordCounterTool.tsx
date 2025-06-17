@@ -125,7 +125,11 @@ export default function WordCounterTool() {
     // SEO hidden text
   const seoSynonyms = (
     <p hidden>
-      Also known as: word clunter, word cpunt, word cout, word countee, word coutn, word. counter, wird counter, word cpunter, word counteer, wordcounter, word countrer, wors counter, word ocunt, word cont, ...
+      Also known as: word clunter, word cpunt, word cout, word countee, word coutn, word. counter, 
+      wird counter, word cpunter, word counteer, wordcounter, word countrer, wors counter, 
+      word ocunt, word cont, word countwr, word counter], word countrer, wordcoutner, 
+      work counter, wors counter, word count counter, word calculator, word number counter, 
+      word counter generator, word cout, word text counter, word ocunt, word cont
     </p>
   )
 
@@ -162,21 +166,41 @@ export default function WordCounterTool() {
           <MinimalFooter />       
           
           <div className={styles.toolDescription}>
-            <h2>Why Use Our Word Counter?</h2>
-            <ul>
+            <h2>How to Use Our Word Counter Tool</h2>
+            <ol>
+              <li><strong>Paste or type your text</strong> in the box above</li>
+              <li><strong>See instant word count and character count</strong> (with/without spaces)</li>
+              <li><strong>Highlight text</strong> to count specific sections (perfect for checking paragraph length)</li>
+              <li><strong>Copy or clear</strong> with one click</li>
+            </ol>
+
+             <h2>Why Use Our Word Counter?</h2>
+            <ol>
               <li><strong>Accurate word counting</strong> – Get precise results every time.</li>
               <li><strong>Fast & easy</strong> – Simply paste your text and see the <strong>words count</strong> instantly.</li>
-              <li><strong>Multiple features</strong> – Check <strong>text word counter</strong>, <strong>paragraph word counter</strong>, and <strong>word length counter</strong> in one place.</li>
-              <li><strong>Works for </strong> essays, articles, social media posts, and more.</li>
-            </ul>
-            
-            <h3>How to Count Words in Text</h3>
-            <ol>
-              <li>Type or paste your content into the <strong>word count tool</strong>.</li>
-              <li>Click &quot;Count Words&quot; to see the <strong>number of words counter</strong> results.</li>
-              <li>Use additional features like <strong>text counter</strong>, <strong>word calculator</strong>, or <strong>decode Base64</strong> if needed.</li>
-              <li>Use the &quot;Clear Text&quot; button to start fresh</li>
+              <li><strong>Multiple features</strong> – Check <strong>text word counter</strong>, <strong>character count </strong> and <strong> character count without spaces</strong></li>
+              <li><strong>Works for</strong> essays, articles, social media posts, and more with one click</li>
             </ol>
+             
+             <p>
+              <strong>Pro Tip: Bookmark this page</strong> for quick access when you need to check word count for essays, social media posts, or SEO content.
+            </p>
+
+            <h3>Common Uses for Word Count</h3>
+            <div className={styles.useCases}>
+              <div className={styles.useCase}>
+                <h3>Students</h3>
+                <p>Check your essay meets the required word count (500 words, 1000 words, etc.)</p>
+              </div>
+              <div className={styles.useCase}>
+                <h3>Writers</h3>
+                <p>Ensure your articles match publisher guidelines and optimal SEO length</p>
+              </div>
+              <div className={styles.useCase}>
+                <h3>Social Media</h3>
+                <p>Count characters for Twitter (280), Facebook, Instagram captions</p>
+              </div>
+            </div>
             
             <h3>Additional Tools You&apos;ll Love</h3>
             <p>Our tool follows standard counting methods:</p>
@@ -203,6 +227,34 @@ export default function WordCounterTool() {
             <div className={styles.faqItem}>
               <div className={styles.faqQuestion}>Can I <strong>count words in text</strong> with formatting?</div>
               <p>Absolutely! Our <strong>word counter tool online</strong> ignores formatting and counts only the words.</p>
+            </div>
+
+            <div className={styles.faqItem}>
+              <div className={styles.faqQuestion}>How does this word counter work?</div>
+              <p>Our tool analyzes your text in real-time using advanced algorithms to provide accurate word counts 
+        (counting groups of characters separated by whitespace) and character counts (including or excluding spaces). 
+        The selection feature lets you highlight specific text portions for focused analysis.</p>
+            </div>
+
+            <div className={styles.faqItem}>
+              <div className={styles.faqQuestion}>What&apos;s the difference between word count and character count?</div>
+              <p><strong>Word count</strong> measures the number of words (text separated by spaces), which is crucial 
+          for writers with length requirements. <strong>Character count</strong> includes every single character 
+          (letters, numbers, spaces, punctuation), important for platforms with character limits like Twitter or 
+          meta descriptions.</p>
+            </div>
+
+          <div className={styles.faqItem}>
+              <div className={styles.faqQuestion}>Why would I need a word counter tool?</div>
+                <p>Word counters are essential for:
+                  <ul>
+                    <li>Students meeting essay or thesis length requirements</li>
+                    <li>Writers adhering to publisher guidelines</li>
+                    <li>SEO specialists optimizing content length</li>
+                    <li>Social media managers crafting posts within platform limits</li>
+                    <li>Translators estimating project costs</li>
+                  </ul>
+                </p>
             </div>
           </div>
             
