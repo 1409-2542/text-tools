@@ -40,7 +40,7 @@ export default function PrivacyPolicy() {
                     rel="noopener noreferrer"
                     className="text-blue-600 hover:underline"
                   >
-                    Google's Privacy Policy
+                    Google&apos;s Privacy Policy
                   </a>
                 </li>
                 <li>
@@ -57,11 +57,11 @@ export default function PrivacyPolicy() {
             </section>
 
             <section>
-              <h3 className="text-xl font-semibold mb-3 text-gray-800">What We Don't Do</h3>
+              <h3 className="text-xl font-semibold mb-3 text-gray-800">What We Don&apos;t Do</h3>
               <ul className="list-disc pl-6 space-y-2 text-gray-700">
                 <li>Sell your data.</li>
                 <li>Collect names/emails unless you contact us.</li>
-                <li>Your text inputs are processed in your browser only (we don't store or analyze them).</li>
+                <li>Your text inputs are processed in your browser only (we don&apos;t store or analyze them).</li>
               </ul>
             </section>
 
