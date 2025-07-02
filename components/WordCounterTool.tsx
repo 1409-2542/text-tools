@@ -126,7 +126,7 @@ export default function WordCounterTool() {
     <main className="container">
       <section className={styles.toolHeader}>
         <h1>Word Counter Tool</h1>
-        <p>Are you looking for a reliable <strong>word counter</strong> tool to <strong>count words</strong> in your text? Whether you&apos;re a writer, student, or professional, tracking your <strong>word count</strong> is essential for meeting requirements and improving readability. Our free <strong>word counter tool</strong> provides instant results, helping you <strong>count my words</strong> efficiently.</p>
+        <p>Are you looking for a reliable <strong>word counter</strong> tool to <strong>count words</strong> in your text? Whether you&apos;re a writer, student, or professional, tracking your <strong>word count</strong> is essential for meeting requirements and improving readability. Our free <strong>word counter tool</strong> provides instant results, helping you <strong>count words</strong> efficiently.</p>
       </section>
       
       <div id="word-counter" className={styles.toolContainer}>
