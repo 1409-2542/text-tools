@@ -9,12 +9,6 @@ const tools = [
     description: "Count words, characters, sentences, and paragraphs in your text"
   },
   {
-    href: "/paragraph-word-counter",
-    icon: "📄",
-    title: "Paragraph Word Counter",
-    description: "Count words, characters, and sentences in your paragraph"
-  },
-  {
     href: "/case-converter",
     icon: "🔄",
     title: "Case Converter",

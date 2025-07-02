@@ -10,7 +10,7 @@ const blogPosts = [
     title: "Base64 Decoded: The No-BS Guide for Developers",
     description: "Base64 encoding/decoding explained without the fluff. Get practical examples, language cheatsheets, and a free tool to convert instantly.",
     category: "Programming",
-    href: "blog/base64-guide",
+    href: "blog/base64-encode-decode-guide",
 //    image: "/images/case-conversion-tutorial.jpg"
   },  
   {
@@ -18,7 +18,7 @@ const blogPosts = [
     title: "Essay Word Count Hacks: Hit the Right Length",
     description: "Struggling with essay length? Learn exactly how to hit 1,000+ words without filler + trim long drafts fast. Includes free word counter tool for students.",
     category: "Writing",
-    href: "blog/essay-word-count-hacks",
+    href: "blog/college-essay-word-count-guide",
 //    image: "/images/case-conversion-tutorial.jpg"
   },
   {
