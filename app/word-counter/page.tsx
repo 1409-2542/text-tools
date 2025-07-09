@@ -96,7 +96,7 @@ export default function WordCounterPage() {
         {
           "@type": "Question",
           "name": "Is this word counter accurate for academic work?",
-          "@acceptedAnswer": {
+          "acceptedAnswer": {
             "@type": "Answer",
             "text": "Our counter matches standard word processors like Microsoft Word and Google Docs. For precise academic requirements, we recommend verifying with your institution's specific guidelines."
           }
