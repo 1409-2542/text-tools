@@ -9,14 +9,24 @@ export default function CaseConverterTool() {
   const [convertedText, setConvertedText] = useState('')
   const [selectedCase, setSelectedCase] = useState('lowercase')
   const [copyStatus, setCopyStatus] = useState('Copy to Clipboard')
+  const [characterCount, setCharacterCount] = useState(0)
+
+  // Update character count
+  useEffect(() => {
+    setCharacterCount(text.length)
+  }, [text])
 
   // Case conversion functions
   const toLowerCase = (text: string) => text.toLowerCase()
   const toUpperCase = (text: string) => text.toUpperCase()
   
   const toTitleCase = (text: string) => {
-    return text.replace(/\w\S*/g, (txt) => {
-      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
+    const smallWords = /^(a|an|and|as|at|but|by|en|for|if|in|nor|of|on|or|per|the|to|vs?\.?|via)$/i
+    return text.replace(/\w\S*/g, (word, index) => {
+      if (index > 0 && index + word.length < text.length && smallWords.test(word)) {
+        return word.toLowerCase()
+      }
+      return word.charAt(0).toUpperCase() + word.substr(1).toLowerCase()
     })
   }
   
@@ -78,7 +88,7 @@ export default function CaseConverterTool() {
       default:
         setConvertedText(text)
     }
-}, [text, selectedCase])
+  }, [text, selectedCase])
 
   // Copy text to clipboard
   const copyToClipboard = () => {
@@ -110,17 +120,21 @@ export default function CaseConverterTool() {
       <div className={styles.toolContainer}>
         <div className={styles.toolMain}>
           <div className={styles.textInputContainer}>
-            <label htmlFor="text-input">Enter your text below:</label>
+            <div className={styles.inputHeader}>
+              <label htmlFor="text-input">Enter your text below:</label>
+              <span className={styles.characterCount}>{characterCount} characters</span>
+            </div>
             <textarea
               id="text-input"
               className={styles.textInput}
               value={text}
               onChange={(e) => setText(e.target.value)}
               placeholder="Type or paste your text here to convert its case..."
+              aria-label="Text input for case conversion"
             />
           </div>
           
-          <div className={styles.caseOptions}>
+          <div className={styles.caseOptions} role="radiogroup" aria-labelledby="case-options-heading">
             <div className={styles.caseOption}>
               <input 
                 type="radio" 
@@ -129,6 +143,7 @@ export default function CaseConverterTool() {
                 value="lowercase"
                 checked={selectedCase === 'lowercase'}
                 onChange={() => setSelectedCase('lowercase')}
+                aria-label="Convert to lowercase"
               />
               <label htmlFor="lowercase">lowercase</label>
             </div>
@@ -140,6 +155,7 @@ export default function CaseConverterTool() {
                 value="uppercase"
                 checked={selectedCase === 'uppercase'}
                 onChange={() => setSelectedCase('uppercase')}
+                aria-label="Convert to uppercase"
               />
               <label htmlFor="uppercase">UPPERCASE</label>
             </div>
@@ -151,6 +167,7 @@ export default function CaseConverterTool() {
                 value="titleCase"
                 checked={selectedCase === 'titleCase'}
                 onChange={() => setSelectedCase('titleCase')}
+                aria-label="Convert to title case"
               />
               <label htmlFor="title-case">Title Case</label>
             </div>
@@ -162,6 +179,7 @@ export default function CaseConverterTool() {
                 value="sentenceCase"
                 checked={selectedCase === 'sentenceCase'}
                 onChange={() => setSelectedCase('sentenceCase')}
+                aria-label="Convert to sentence case"
               />
               <label htmlFor="sentence-case">Sentence case</label>
             </div>
@@ -173,6 +191,7 @@ export default function CaseConverterTool() {
                 value="capitalized"
                 checked={selectedCase === 'capitalized'}
                 onChange={() => setSelectedCase('capitalized')}
+                aria-label="Convert to capitalized case"
               />
               <label htmlFor="capitalized">Capitalized Case</label>
             </div>
@@ -184,6 +203,7 @@ export default function CaseConverterTool() {
                 value="alternating"
                 checked={selectedCase === 'alternating'}
                 onChange={() => setSelectedCase('alternating')}
+                aria-label="Convert to alternating case"
               />
               <label htmlFor="alternating">aLtErNaTiNg cAsE</label>
             </div>
@@ -195,6 +215,7 @@ export default function CaseConverterTool() {
                 value="inverse"
                 checked={selectedCase === 'inverse'}
                 onChange={() => setSelectedCase('inverse')}
+                aria-label="Convert to inverse case"
               />
               <label htmlFor="inverse">iNVERSE cASE</label>
             </div>
@@ -204,12 +225,14 @@ export default function CaseConverterTool() {
             <button 
               className={`${styles.btn} ${styles.btnPrimary}`}
               onClick={convertText}
+              aria-label="Convert text to selected case"
             >
               Convert Case
             </button>
             <button 
               className={`${styles.btn} ${styles.btnSecondary}`}
               onClick={clearText}
+              aria-label="Clear all text"
             >
               Clear Text
             </button>
@@ -222,91 +245,110 @@ export default function CaseConverterTool() {
               className={styles.resultTextarea} 
               value={convertedText}
               readOnly
+              aria-label="Converted text result"
             />
             <button 
               className={styles.copyBtn}
               onClick={copyToClipboard}
               disabled={!convertedText}
+              aria-label="Copy converted text to clipboard"
             >
               {copyStatus}
             </button>
           </div>
           
-          <div className={styles.toolDescription}>
+          <article className={styles.toolDescription}>
             <h2>About Our Case Converter Tool</h2>
             <p>Our free online case converter allows you to transform text between different letter cases with just one click. Whether you need to format headings, normalize text, or create stylistic effects, this tool provides quick and accurate case conversion.</p>
             
-            <p>The case converter is particularly useful for:</p>
-            <ul>
-              <li>Writers formatting titles and headings</li>
-              <li>Programmers normalizing string data</li>
-              <li>Students preparing academic papers</li>
-              <li>Social media managers creating engaging posts</li>
-              <li>Designers working with typography</li>
-              <li>Anyone needing to quickly reformat text</li>
-            </ul>
+            <section>
+              <h3>Who Uses This Tool?</h3>
+              <ul>
+                <li><strong>Writers & Editors:</strong> Format titles, headings, and content consistently</li>
+                <li><strong>Programmers:</strong> Normalize string data for consistent processing</li>
+                <li><strong>Students:</strong> Format academic papers and citations properly</li>
+                <li><strong>Social Media Managers:</strong> Create engaging posts with varied case styles</li>
+                <li><strong>Designers:</strong> Work with typography and text styling</li>
+                <li><strong>Data Analysts:</strong> Clean and standardize text data</li>
+              </ul>
+            </section>
             
-            <h3>Available Case Conversion Options</h3>
-            <div className={styles.caseExamples}>
-              <div className={styles.caseExample}>
-                <h3>lowercase</h3>
-                <p>converts all letters to lowercase<br />Example: &quot;this is lowercase text&quot;</p>
+            <section>
+              <h3>Detailed Case Conversion Examples</h3>
+              <div className={styles.caseExamples}>
+                <div className={styles.caseExample}>
+                  <h4>lowercase</h4>
+                  <p>Converts all letters to lowercase<br />
+                  <strong>Example:</strong> &quot;this text becomes lowercase&quot;</p>
+                </div>
+                <div className={styles.caseExample}>
+                  <h4>UPPERCASE</h4>
+                  <p>CONVERTS ALL LETTERS TO UPPERCASE<br />
+                  <strong>EXAMPLE:</strong> &quot;THIS TEXT BECOMES UPPERCASE&quot;</p>
+                </div>
+                <div className={styles.caseExample}>
+                  <h4>Title Case</h4>
+                  <p>Capitalizes The First Letter Of Each Main Word<br />
+                  <strong>Example:</strong> &quot;This Text Becomes Title Case&quot;</p>
+                </div>
+                <div className={styles.caseExample}>
+                  <h4>Sentence case</h4>
+                  <p>Capitalizes the first letter of the first word in each sentence.<br />
+                  <strong>Example:</strong> &quot;This text becomes sentence case. It looks natural.&quot;</p>
+                </div>
+                <div className={styles.caseExample}>
+                  <h4>Capitalized Case</h4>
+                  <p>Capitalizes The First Letter Of Every Word<br />
+                  <strong>Example:</strong> &quot;This Text Has Every Word Capitalized&quot;</p>
+                </div>
+                <div className={styles.caseExample}>
+                  <h4>aLtErNaTiNg cAsE</h4>
+                  <p>AlTeRnAtEs BeTwEeN lOwErCaSe AnD uPpErCaSe<br />
+                  <strong>Example:</strong> &quot;tHiS TeXt AlTeRnAtEs cAsEs&quot;</p>
+                </div>
               </div>
-              <div className={styles.caseExample}>
-                <h3>UPPERCASE</h3>
-                <p>CONVERTS ALL LETTERS TO UPPERCASE<br />EXAMPLE: &quot;THIS IS UPPERCASE TEXT&quot;</p>
-              </div>
-              <div className={styles.caseExample}>
-                <h3>Title Case</h3>
-                <p>Capitalizes The First Letter Of Each Word<br />Example: &quot;This Is Title Case Text&quot;</p>
-              </div>
-              <div className={styles.caseExample}>
-                <h3>Sentence case</h3>
-                <p>Capitalizes the first letter of the first word in each sentence. Example: &quot;This is sentence case text. It looks like normal sentences.&quot;</p>
-              </div>
-              <div className={styles.caseExample}>
-                <h3>Capitalized Case</h3>
-                <p>Capitalizes The First Character Of Every Word<br />Example: &quot;This Is Similar To Title Case But Handles All Words The Same&quot;</p>
-              </div>
-              <div className={styles.caseExample}>
-                <h3>aLtErNaTiNg cAsE</h3>
-                <p>AlTeRnAtEs BeTwEeN lOwErCaSe AnD uPpErCaSe<br />Example: &quot;tHiS Is aLtErNaTiNg cAsE tExT&quot;</p>
-              </div>
-            </div>
+            </section>
             
-            <h3>How to Use the Case Converter</h3>
-            <ol>
-              <li>Type or paste your text into the input box above</li>
-              <li>Select your desired case conversion option</li>
-              <li>Click &quot;Convert Case&quot; to transform your text</li>
-              <li>Use the &quot;Copy to Clipboard&quot; button to copy the result</li>
-              <li>Use the &quot;Clear Text&quot; button to start fresh</li>
-            </ol>
-          </div>
+            <section>
+              <h3>Step-by-Step Usage Guide</h3>
+              <ol>
+                <li><strong>Input your text</strong> - Type or paste into the text area</li>
+                <li><strong>Select case style</strong> - Choose from 7 conversion options</li>
+                <li><strong>Convert</strong> - Click the convert button</li>
+                <li><strong>Copy results</strong> - Use the copy button for easy transfer</li>
+                <li><strong>Start fresh</strong> - Clear all text when needed</li>
+              </ol>
+            </section>
+          </article>
           
-          <div className={styles.faqSection}>
+          <section className={styles.faqSection}>
             <h2>Frequently Asked Questions</h2>
             
-            <div className={styles.faqItem}>
+            <article className={styles.faqItem}>
               <div className={styles.faqQuestion}>What&apos;s the difference between Title Case and Capitalized Case?</div>
               <p>Title Case follows standard title capitalization rules where certain small words (like &quot;a&quot;, &quot;and&quot;, &quot;the&quot;) remain lowercase unless they&apos;re the first word. Capitalized Case capitalizes the first letter of every word regardless of the word&apos;s role in the sentence.</p>
-            </div>
+            </article>
             
-            <div className={styles.faqItem}>
+            <article className={styles.faqItem}>
               <div className={styles.faqQuestion}>Does the case converter work with different languages?</div>
-              <p>Yes, our case converter works with any language that uses the Latin alphabet. For languages with special characters (like German umlauts or Spanish accents), the conversion will preserve these characters while changing their case.</p>
-            </div>
+              <p>Yes, our case converter works with any language that uses the Latin alphabet. For languages with special characters (like German umlauts or Spanish accents), the conversion will preserve these characters while changing their case. Note that some case conversions (like Title Case) may not be linguistically accurate for all languages.</p>
+            </article>
             
-            <div className={styles.faqItem}>
+            <article className={styles.faqItem}>
               <div className={styles.faqQuestion}>Is there a limit to how much text I can convert?</div>
-              <p>You can convert up to 100,000 characters at once, which is approximately 15,000-20,000 words. For most users, this is more than sufficient.</p>
-            </div>
+              <p>You can convert up to 100,000 characters at once (about 15,000-20,000 words). For larger texts, consider breaking them into smaller sections. The character counter helps you track your input length.</p>
+            </article>
             
-            <div className={styles.faqItem}>
+            <article className={styles.faqItem}>
               <div className={styles.faqQuestion}>Does the tool store my text?</div>
-              <p>No, all processing happens in your browser. We never send your text to our servers, ensuring complete privacy for your content.</p>
-            </div>
-          </div>
+              <p>No, all processing happens in your browser. We never send your text to our servers, ensuring complete privacy for your content. This also means your conversions are faster as there&apos;s no network delay.</p>
+            </article>
+
+            <article className={styles.faqItem}>
+              <div className={styles.faqQuestion}>Can I convert text programmatically?</div>
+              <p>While this is a web interface, all these case conversions can be implemented in code. The algorithms used here follow standard JavaScript string manipulation methods, which you can adapt for your programming needs.</p>
+            </article>
+          </section>
         </div>
         
         <div>
