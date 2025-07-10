@@ -181,7 +181,7 @@ export default function TextDiffPage() {
         <Breadcrumbs 
           items={[
             { label: 'Home', href: '/' },
-            { label: 'Developer Tools', href: '/#tools' },
+            { label: 'Text Tools', href: '/#tools' },
             { label: 'Text Diff', href: '/text-diff' }
           ]}
         />

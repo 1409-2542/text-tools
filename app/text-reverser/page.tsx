@@ -181,7 +181,7 @@ export default function TextReverserPage() {
         <Breadcrumbs 
           items={[
             { label: 'Home', href: '/' },
-            { label: 'Text Tools', href: '/text-tools' },
+            { label: 'Text Tools', href: '/#tools' },
             { label: 'Text Reverser', href: '/text-reverser' }
           ]}
         />
