@@ -335,7 +335,7 @@
   padding: 1.5rem;
 }
 
-.useCase h3 {
+.useCase h4 {
   margin-bottom: 0.5rem;
   font-size: 1.1rem;
   color: var(--primary-color);
@@ -380,5 +380,303 @@
   
   .btn {
     width: 100%;
+  }
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 2rem 0;
+}
+
+.header h1 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+
+.header p {
+  font-size: 1.1rem;
+  color: #666;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.toolLayout {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.editorContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.editorPanel {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  background: white;
+}
+
+.panelHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background: #f8f9fa;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.panelHeader h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.clearButton {
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+.clearButton:hover {
+  background: #f0f0f0;
+}
+
+.textArea {
+  width: 100%;
+  min-height: 300px;
+  padding: 1rem;
+  border: none;
+  resize: vertical;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.textArea:focus {
+  outline: none;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: center;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.controlGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.controlGroup label {
+  font-size: 0.9rem;
+  color: #555;
+  font-weight: 500;
+}
+
+.select {
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: white;
+}
+
+.checkboxGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.checkboxGroup input {
+  margin: 0;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 0.75rem;
+  margin-left: auto;
+  flex-wrap: wrap;
+}
+
+.primaryButton {
+  padding: 0.6rem 1.25rem;
+  background: #4a6bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.primaryButton:hover {
+  background: #3a5bef;
+}
+
+.primaryButton:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.secondaryButton {
+  padding: 0.6rem 1.25rem;
+  background: white;
+  color: #4a6bff;
+  border: 1px solid #4a6bff;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.secondaryButton:hover {
+  background: #f0f4ff;
+}
+
+.results {
+  margin-top: 1rem;
+}
+
+.stats {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.statCard {
+  padding: 1rem 1.5rem;
+  border-radius: 6px;
+  text-align: center;
+  flex: 1;
+  min-width: 120px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.statCard.added {
+  background: #e6ffec;
+  border: 1px solid #a5d6a7;
+}
+
+.statCard.removed {
+  background: #ffebee;
+  border: 1px solid #ef9a9a;
+}
+
+.statCard.similarity {
+  background: #e3f2fd;
+  border: 1px solid #90caf9;
+}
+
+.statValue {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.statLabel {
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.diffView {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1.5rem;
+  background: white;
+}
+
+.diffView h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.diffContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.diffContent {
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  white-space: pre-wrap;
+  line-height: 1.6;
+  font-size: 14px;
+  padding: 0.5rem;
+  border-radius: 4px;
+  background: #f9f9f9;
+  min-height: 200px;
+}
+
+.diffAdded {
+  background: #e6ffec;
+  color: #22863a;
+  padding: 0.1rem 0.2rem;
+  border-radius: 2px;
+}
+
+.diffRemoved {
+  background: #ffebee;
+  color: #cb2431;
+  padding: 0.1rem 0.2rem;
+  border-radius: 2px;
+  text-decoration: line-through;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .editorContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .diffContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .buttonGroup {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .primaryButton, .secondaryButton {
+    flex: 1;
+    text-align: center;
+  }
+
+  .header h1 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .controls {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .buttonGroup {
+    flex-direction: column;
   }
 }

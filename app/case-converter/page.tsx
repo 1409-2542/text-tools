@@ -168,7 +168,7 @@ export default function CaseConverterPage() {
         <Breadcrumbs 
           items={[
             { label: 'Home', href: '/' },
-            { label: 'Text Tools', href: '/text-tools' },
+            { label: 'Text Tools', href: '/#tools' },
             { label: 'Case Converter', href: '/case-converter' }
           ]}
         />

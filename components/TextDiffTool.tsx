@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect, useCallback } from 'react'
+import { diffChars, diffWords, diffLines, Change } from 'diff'
 import styles from './TextDiffTool.module.css'
 import ToolSidebar from "@/components/ToolSidebar";
 
@@ -9,117 +10,67 @@ type DiffMethod = 'chars' | 'words' | 'lines'
 interface DiffStats {
   added: number
   removed: number
-  changed: number
   similarity: number
+  processingTime: number
 }
 
 export default function TextDiffTool() {
-  const [textA, setTextA] = useState('function greet(name) {\n  return "Hello " + name;\n}')
-  const [textB, setTextB] = useState('function greet(name, greeting = "Hello") {\n  return `${greeting} ${name}`;\n}')
-  const [diffResult, setDiffResult] = useState('')
+  const [textA, setTextA] = useState('')
+  const [textB, setTextB] = useState('')
+  const [diffResultA, setDiffResultA] = useState('')
+  const [diffResultB, setDiffResultB] = useState('')
   const [stats, setStats] = useState<DiffStats>({
     added: 0,
     removed: 0,
-    changed: 0,
-    similarity: 100
+    similarity: 100,
+    processingTime: 0
   })
   const [method, setMethod] = useState<DiffMethod>('lines')
   const [ignoreCase, setIgnoreCase] = useState(true)
   const [ignoreWhitespace, setIgnoreWhitespace] = useState(false)
-  const [showMatching, setShowMatching] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+  const [characterCountA, setCharacterCountA] = useState(0)
+  const [characterCountB, setCharacterCountB] = useState(0)
 
-  const escapeHtml = useCallback((unsafe: string) => {
-    return unsafe
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;")
-      .replace(/'/g, "&#039;")
+  // Update character counts
+  useEffect(() => {
+    setCharacterCountA(textA.length)
+    setCharacterCountB(textB.length)
+  }, [textA, textB])
+
+  // Sample code for demo
+  const loadSample = useCallback(() => {
+    setTextA(`function greet(name) {
+  return "Hello " + name;
+}
+
+// Old implementation
+function calculate(a, b) {
+  return a + b;
+}`)
+    setTextB(`function greet(name, greeting = "Hello") {
+  return \`\${greeting} \${name}\`;
+}
+
+// New implementation with validation
+function calculate(a, b) {
+  if (typeof a !== 'number' || typeof b !== 'number') {
+    throw new Error('Invalid input');
+  }
+  return a + b;
+}`)
   }, [])
-
-  const compareTexts = useCallback((text1: string, text2: string, method: DiffMethod) => {
-    let lines1: string[], lines2: string[]
-    
-    if (method === 'lines') {
-      lines1 = text1.split('\n')
-      lines2 = text2.split('\n')
-    } else if (method === 'words') {
-      lines1 = text1.split(/\s+/)
-      lines2 = text2.split(/\s+/)
-    } else { // chars
-      lines1 = Array.from(text1)
-      lines2 = Array.from(text2)
-    }
-    
-    const normalize = (str: string) => {
-      let result = str
-      if (ignoreCase) result = result.toLowerCase()
-      if (ignoreWhitespace) result = result.trim()
-      return result
-    }
-    
-    const result = []
-    let added = 0
-    let removed = 0
-    let changed = 0
-    let matching = 0
-    
-    const maxLength = Math.max(lines1.length, lines2.length)
-    for (let i = 0; i < maxLength; i++) {
-      const line1 = i < lines1.length ? lines1[i] : ''
-      const line2 = i < lines2.length ? lines2[i] : ''
-      
-      const norm1 = normalize(line1)
-      const norm2 = normalize(line2)
-      
-      if (line1 === '' && line2 === '') {
-        continue
-      } else if (line1 === '' && line2 !== '') {
-        result.push(`<div class="${styles.diffLine} ${styles.diffAdded}">${escapeHtml(line2)}</div>`)
-        added++
-      } else if (line1 !== '' && line2 === '') {
-        result.push(`<div class="${styles.diffLine} ${styles.diffRemoved}">${escapeHtml(line1)}</div>`)
-        removed++
-      } else if (norm1 === norm2) {
-        if (showMatching) {
-          result.push(`<div class="${styles.diffLine}">${escapeHtml(line1)}</div>`)
-        }
-        matching++
-      } else {
-        result.push(`<div class="${styles.diffLine} ${styles.diffChanged}">${escapeHtml(line1)} → ${escapeHtml(line2)}</div>`)
-        changed++
-      }
-    }
-    
-    const total = added + removed + changed + matching
-    const similarity = total > 0 ? Math.round((matching / total) * 100) : 100
-    
-    return {
-      html: result.join(''),
-      stats: {
-        added,
-        removed,
-        changed,
-        similarity
-      }
-    }
-  }, [escapeHtml, ignoreCase, ignoreWhitespace, showMatching])
-
-  const performComparison = useCallback(() => {
-    const comparison = compareTexts(textA, textB, method)
-    setDiffResult(comparison.html)
-    setStats(comparison.stats)
-  }, [textA, textB, method, compareTexts])
 
   const clearTexts = useCallback(() => {
     setTextA('')
     setTextB('')
-    setDiffResult('')
+    setDiffResultA('')
+    setDiffResultB('')
     setStats({
       added: 0,
       removed: 0,
-      changed: 0,
-      similarity: 100
+      similarity: 100,
+      processingTime: 0
     })
   }, [])
 
@@ -129,242 +80,370 @@ export default function TextDiffTool() {
     setTextB(temp)
   }, [textA, textB])
 
+  const compareTexts = useCallback(() => {
+    const startTime = performance.now()
+    setIsLoading(true)
+    
+    try {
+      let diffFn: (a: string, b: string, options?: { ignoreCase?: boolean, ignoreWhitespace?: boolean }) => Change[]
+      switch (method) {
+        case 'words': diffFn = diffWords; break
+        case 'chars': diffFn = diffChars; break
+        default: diffFn = diffLines
+      }
+
+      const changes = diffFn(textA, textB, { 
+        ignoreCase, 
+        ignoreWhitespace 
+      })
+
+      let resultA = ''
+      let resultB = ''
+      let added = 0
+      let removed = 0
+      let unchanged = 0
+
+      changes.forEach((part: Change) => {
+        const escaped = escapeHtml(part.value)
+        if (part.added) {
+          resultB += `<span class="${styles.diffAdded}">${escaped}</span>`
+          added += part.value.length
+        } else if (part.removed) {
+          resultA += `<span class="${styles.diffRemoved}">${escaped}</span>`
+          removed += part.value.length
+        } else {
+          resultA += `<span>${escaped}</span>`
+          resultB += `<span>${escaped}</span>`
+          unchanged += part.value.length
+        }
+      })
+
+      const total = added + removed + unchanged
+      const similarity = total > 0 ? Math.round((unchanged / total) * 100) : 100
+      const processingTime = performance.now() - startTime
+
+      setDiffResultA(resultA)
+      setDiffResultB(resultB)
+      setStats({
+        added,
+        removed,
+        similarity,
+        processingTime: parseFloat(processingTime.toFixed(2))
+      })
+    } catch (error) {
+      console.error('Diff error:', error)
+    } finally {
+      setIsLoading(false)
+    }
+  }, [textA, textB, method, ignoreCase, ignoreWhitespace])
+
+  const escapeHtml = (unsafe: string) => {
+    return unsafe
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;")
+      .replace(/\n/g, "<br>")
+  }
+
   useEffect(() => {
-    performComparison()
-  }, [performComparison])
+    if (textA || textB) {
+      const timer = setTimeout(() => {
+        compareTexts()
+      }, 500)
+      
+      return () => clearTimeout(timer)
+    }
+  }, [textA, textB, compareTexts])
 
   return (
     <main className="container">
       <section className={styles.toolHeader}>
-        <h1>Text Diff Tool</h1>
-        <p>Compare two texts and instantly see the differences highlighted. Perfect for code review, document comparison, and version control.</p>
+        <h1>Text Comparison Tool</h1>
+        <p>Compare and find differences between two text documents with precision. Perfect for code reviews, document version control, and content analysis.</p>
       </section>
       
       <div className={styles.toolContainer}>
         <div className={styles.toolMain}>
-          <div className={styles.diffContainer}>
-            <div className={styles.textColumn}>
-              <label htmlFor="text-a">Original Text:</label>
-              <textarea
-                id="text-a"
-                className={styles.textInput}
-                value={textA}
-                onChange={(e) => setTextA(e.target.value)}
-                placeholder="Paste your original text here..."
-              />
+          <div className={styles.textInputContainer}>
+            <div className={styles.inputHeader}>
+              <div className={styles.inputHeaderLeft}>
+                <label htmlFor="text-input-a">Original Text:</label>
+                <span className={styles.characterCount}>{characterCountA} chars</span>
+              </div>
+              <button 
+                onClick={() => setTextA('')}
+                className={styles.clearButton}
+                aria-label="Clear original text"
+              >
+                Clear
+              </button>
             </div>
-            <div className={styles.textColumn}>
-              <label htmlFor="text-b">Modified Text:</label>
-              <textarea
-                id="text-b"
-                className={styles.textInput}
-                value={textB}
-                onChange={(e) => setTextB(e.target.value)}
-                placeholder="Paste your modified text here..."
-              />
-            </div>
+            <textarea
+              id="text-input-a"
+              value={textA}
+              onChange={(e) => setTextA(e.target.value)}
+              placeholder="Paste original text here..."
+              className={styles.textInput}
+              spellCheck="false"
+              aria-label="Original text input"
+            />
           </div>
           
-          <div className={styles.optionsContainer}>
-            <div className={styles.optionGroup}>
-              <label htmlFor="diff-method">Comparison Method:</label>
+          <div className={styles.textInputContainer}>
+            <div className={styles.inputHeader}>
+              <div className={styles.inputHeaderLeft}>
+                <label htmlFor="text-input-b">Modified Text:</label>
+                <span className={styles.characterCount}>{characterCountB} chars</span>
+              </div>
+              <button 
+                onClick={() => setTextB('')}
+                className={styles.clearButton}
+                aria-label="Clear modified text"
+              >
+                Clear
+              </button>
+            </div>
+            <textarea
+              id="text-input-b"
+              value={textB}
+              onChange={(e) => setTextB(e.target.value)}
+              placeholder="Paste modified text here..."
+              className={styles.textInput}
+              spellCheck="false"
+              aria-label="Modified text input"
+            />
+          </div>
+          
+          <div className={styles.controls}>
+            <div className={styles.controlGroup}>
+              <label htmlFor="diff-method">Comparison Mode:</label>
               <select
                 id="diff-method"
                 value={method}
                 onChange={(e) => setMethod(e.target.value as DiffMethod)}
+                className={styles.select}
+                aria-label="Select comparison mode"
               >
-                <option value="chars">Character-level</option>
-                <option value="words">Word-level</option>
-                <option value="lines">Line-level</option>
+                <option value="lines">Line by Line</option>
+                <option value="words">Word by Word</option>
+                <option value="chars">Character by Character</option>
               </select>
             </div>
+
+            <div className={styles.checkboxGroup}>
+              <input
+                type="checkbox"
+                id="ignore-case"
+                checked={ignoreCase}
+                onChange={(e) => setIgnoreCase(e.target.checked)}
+                aria-label="Ignore case when comparing"
+              />
+              <label htmlFor="ignore-case">Ignore Case</label>
+            </div>
+
+            <div className={styles.checkboxGroup}>
+              <input
+                type="checkbox"
+                id="ignore-whitespace"
+                checked={ignoreWhitespace}
+                onChange={(e) => setIgnoreWhitespace(e.target.checked)}
+                aria-label="Ignore whitespace when comparing"
+              />
+              <label htmlFor="ignore-whitespace">Ignore Whitespace</label>
+            </div>
+
+            <div className={styles.buttonGroup}>
+              <button 
+                onClick={compareTexts}
+                className={styles.primaryButton}
+                disabled={isLoading}
+                aria-label="Compare texts"
+              >
+                {isLoading ? 'Comparing...' : 'Compare Texts'}
+              </button>
+              <button
+                onClick={swapTexts}
+                className={styles.secondaryButton}
+                aria-label="Swap original and modified texts"
+              >
+                Swap Texts
+              </button>
+              <button
+                onClick={loadSample}
+                className={styles.secondaryButton}
+                aria-label="Load sample text"
+              >
+                Load Sample
+              </button>
+              <button
+                onClick={clearTexts}
+                className={styles.secondaryButton}
+                aria-label="Clear all text"
+              >
+                Clear All
+              </button>
+            </div>
+          </div>
+          
+          <div className={styles.results}>
+            <div className={styles.stats}>
+              <div className={`${styles.statCard} ${styles.added}`}>
+                <div className={styles.statValue}>{stats.added}</div>
+                <div className={styles.statLabel}>Additions</div>
+              </div>
+              <div className={`${styles.statCard} ${styles.removed}`}>
+                <div className={styles.statValue}>{stats.removed}</div>
+                <div className={styles.statLabel}>Deletions</div>
+              </div>
+              <div className={`${styles.statCard} ${styles.similarity}`}>
+                <div className={styles.statValue}>{stats.similarity}%</div>
+                <div className={styles.statLabel}>Similarity</div>
+              </div>
+              {stats.processingTime > 0 && (
+                <div className={`${styles.statCard} ${styles.time}`}>
+                  <div className={styles.statValue}>{stats.processingTime}ms</div>
+                  <div className={styles.statLabel}>Processing Time</div>
+                </div>
+              )}
+            </div>
+
+            <div className={styles.diffView}>
+              <h2>Differences Highlighted</h2>
+              <div className={styles.diffContainer}>
+                <div className={styles.diffPanel}>
+                  <h3>Original</h3>
+                  <div 
+                    className={styles.diffContent}
+                    dangerouslySetInnerHTML={{ __html: diffResultA }}
+                    aria-label="Original text with differences highlighted"
+                  />
+                </div>
+                <div className={styles.diffPanel}>
+                  <h3>Modified</h3>
+                  <div 
+                    className={styles.diffContent}
+                    dangerouslySetInnerHTML={{ __html: diffResultB }}
+                    aria-label="Modified text with differences highlighted"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <article className={styles.toolDescription}>
+            <h2>About Our Text Comparison Tool</h2>
+            <p>Our advanced diff tool helps you identify changes between two text documents with precision. Whether you&apos;re reviewing code changes, comparing document versions, or analyzing content modifications, this tool provides clear, highlighted differences with comprehensive statistics.</p>
             
-            <div className={styles.optionGroup}>
-              <label>Options:</label>
-              <div className={styles.checkboxGroup}>
-                <input
-                  type="checkbox"
-                  id="ignore-case"
-                  checked={ignoreCase}
-                  onChange={(e) => setIgnoreCase(e.target.checked)}
-                />
-                <label htmlFor="ignore-case">Ignore case</label>
+            <section>
+              <h3>Who Uses This Tool?</h3>
+              <div className={styles.useCases}>
+                <div className={styles.useCase}>
+                  <h4>Developers</h4>
+                  <ul>
+                    <li>Review code changes between commits</li>
+                    <li>Compare configuration file versions</li>
+                    <li>Analyze API response differences</li>
+                  </ul>
+                </div>
+                <div className={styles.useCase}>
+                  <h4>Writers & Editors</h4>
+                  <ul>
+                    <li>Track changes between document versions</li>
+                    <li>Compare translations or localized content</li>
+                    <li>Review editorial changes</li>
+                  </ul>
+                </div>
+                <div className={styles.useCase}>
+                  <h4>Data Analysts</h4>
+                  <ul>
+                    <li>Compare CSV or JSON data sets</li>
+                    <li>Analyze log file changes</li>
+                    <li>Validate data transformations</li>
+                  </ul>
+                </div>
+                <div className={styles.useCase}>
+                  <h4>Students & Researchers</h4>
+                  <ul>
+                    <li>Compare essay drafts</li>
+                    <li>Analyze source material variations</li>
+                    <li>Review collaborative edits</li>
+                  </ul>
+                </div>
               </div>
-              <div className={styles.checkboxGroup}>
-                <input
-                  type="checkbox"
-                  id="ignore-whitespace"
-                  checked={ignoreWhitespace}
-                  onChange={(e) => setIgnoreWhitespace(e.target.checked)}
-                />
-                <label htmlFor="ignore-whitespace">Ignore whitespace</label>
-              </div>
-              <div className={styles.checkboxGroup}>
-                <input
-                  type="checkbox"
-                  id="show-matching"
-                  checked={showMatching}
-                  onChange={(e) => setShowMatching(e.target.checked)}
-                />
-                <label htmlFor="show-matching">Show matching lines</label>
-              </div>
-            </div>
-          </div>
-          
-          <div className={styles.actionButtons}>
-            <button className={`${styles.btn} ${styles.btnPrimary}`}>
-              Compare Texts
-            </button>
-            <button
-              className={`${styles.btn} ${styles.btnSecondary}`}
-              onClick={clearTexts}
-            >
-              Clear All
-            </button>
-            <button
-              className={`${styles.btn} ${styles.btnSecondary}`}
-              onClick={swapTexts}
-            >
-              Swap Texts
-            </button>
-          </div>
-          
-          <div className={styles.legend}>
-            <div className={styles.legendItem}>
-              <div className={`${styles.legendColor} ${styles.legendAdded}`}></div>
-              <span>Added content</span>
-            </div>
-            <div className={styles.legendItem}>
-              <div className={`${styles.legendColor} ${styles.legendRemoved}`}></div>
-              <span>Removed content</span>
-            </div>
-            <div className={styles.legendItem}>
-              <div className={`${styles.legendColor} ${styles.legendChanged}`}></div>
-              <span>Changed content</span>
-            </div>
-          </div>
-          
-          <div className={styles.statsContainer}>
-            <div className={styles.statCard}>
-              <div className={styles.statValue}>{stats.added}</div>
-              <div className={styles.statLabel}>Additions</div>
-            </div>
-            <div className={styles.statCard}>
-              <div className={styles.statValue}>{stats.removed}</div>
-              <div className={styles.statLabel}>Deletions</div>
-            </div>
-            <div className={styles.statCard}>
-              <div className={styles.statValue}>{stats.changed}</div>
-              <div className={styles.statLabel}>Changes</div>
-            </div>
-            <div className={styles.statCard}>
-              <div className={styles.statValue}>{stats.similarity}%</div>
-              <div className={styles.statLabel}>Similarity</div>
-            </div>
-          </div>
-          
-          <div className={styles.resultsContainer}>
-            <label htmlFor="diff-result">Differences:</label>
-            <div
-              id="diff-result"
-              className={styles.diffResults}
-              dangerouslySetInnerHTML={{ __html: diffResult }}
-            />
-          </div>
-          
-          <div className={styles.exampleContainer}>
-            <div className={styles.exampleLabel}>Example Output:</div>
-            <div className={styles.exampleText}>
-              <div className={`${styles.diffLine} ${styles.diffChanged}`}>function greet(name, greeting = &quot;Hello&quot;) {'{'}</div>
-              <div className={`${styles.diffLine} ${styles.diffRemoved}`}>  return &quot;Hello &quot; + name;</div>
-              <div className={`${styles.diffLine} ${styles.diffAdded}`}>  return {"`${greeting} ${name}`"}</div>
-              <div className={styles.diffLine}>{'}'}</div>
-            </div>
-          </div>
-          
-          <div className={styles.toolDescription}>
-            <h2>About Our Text Diff Tool</h2>
-            <p>Our free online text comparison tool helps you identify differences between two text documents quickly and accurately. Whether you&apos;re comparing code versions, document revisions, or any text content, this tool highlights additions, deletions, and changes with color-coded visual cues.</p>
+            </section>
             
-            <p>The text diff tool is particularly useful for:</p>
-            <ul>
-              <li>Developers reviewing code changes and merges</li>
-              <li>Writers tracking document revisions and edits</li>
-              <li>Students comparing different versions of essays</li>
-              <li>Legal professionals examining contract changes</li>
-              <li>Content managers verifying website updates</li>
-              <li>Anyone needing to spot differences in text files</li>
-            </ul>
+            <section>
+              <h3>Comparison Modes Explained</h3>
+              <div className={styles.useCases}>
+                <div className={styles.useCase}>
+                  <h4>Character Level</h4>
+                  <p>Highlights individual character changes for maximum precision. Ideal for code, configuration files, and exact matching.</p>
+                </div>
+                <div className={styles.useCase}>
+                  <h4>Word Level</h4>
+                  <p>Shows whole word differences. Best for natural language text where word-level changes matter most.</p>
+                </div>
+                <div className={styles.useCase}>
+                  <h4>Line Level</h4>
+                  <p>Compares entire lines. Perfect for structured documents and code where changes typically affect whole lines.</p>
+                </div>
+              </div>
+            </section>
             
-            <h3>Comparison Methods</h3>
-            <div className={styles.useCases}>
-              <div className={styles.useCase}>
-                <h3>Line-level Comparison</h3>
-                <p>Compares entire lines of text, ideal for code and documents where changes typically affect whole lines.</p>
-              </div>
-              <div className={styles.useCase}>
-                <h3>Word-level Comparison</h3>
-                <p>Highlights changes at the word level within lines, perfect for prose and content editing.</p>
-              </div>
-              <div className={styles.useCase}>
-                <h3>Character-level Comparison</h3>
-                <p>Shows exact character differences, useful for precise analysis of small changes.</p>
-              </div>
-              <div className={styles.useCase}>
-                <h3>Customizable Options</h3>
-                <p>Toggle case sensitivity, whitespace handling, and whether to show matching lines.</p>
-              </div>
-            </div>
+            <section>
+              <h3>How to Use This Tool Effectively</h3>
+              <ol>
+                <li><strong>Choose the right comparison mode</strong> - Select character, word, or line level based on your content type</li>
+                <li><strong>Set appropriate options</strong> - Enable &quot;Ignore Case&quot; for case-insensitive comparison or &quot;Ignore Whitespace&quot; to focus on content</li>
+                <li><strong>Review statistics</strong> - Check the similarity percentage and change counts to understand the scope of differences</li>
+                <li><strong>Analyze highlighted changes</strong> - Added content appears in green, removed content in red</li>
+                <li><strong>Use sample texts</strong> - Try the &quot;Load Sample&quot; button to see how the tool works with example content</li>
+              </ol>
+            </section>
             
-            <h3>How to Use This Tool</h3>
-            <ol>
-              <li>Paste your original text in the left box</li>
-              <li>Paste the modified text in the right box</li>
-              <li>Select your preferred comparison method (line, word, or character level)</li>
-              <li>Set additional options (case sensitivity, whitespace, etc.)</li>
-              <li>Click &quot;Compare Texts&quot; to analyze differences</li>
-              <li>Review the color-coded diff output and statistics</li>
-              <li>Use &quot;Swap Texts&quot; to reverse the comparison if needed</li>
-            </ol>
-            
-            <h3>Understanding the Results</h3>
-            <p>The diff output uses color coding to highlight different types of changes:</p>
-            <ul>
-              <li><strong>Green (Added):</strong> Content that exists in the modified text but not in the original</li>
-              <li><strong>Red (Removed):</strong> Content that exists in the original but not in the modified text</li>
-              <li><strong>Yellow (Changed):</strong> Content that has been modified between versions</li>
-              <li><strong>Statistics:</strong> Shows counts of additions, deletions, changes, and overall similarity percentage</li>
-            </ul>
-          </div>
+            <section>
+              <h3>Technical Implementation</h3>
+              <p>The tool uses advanced diffing algorithms to compare your texts:</p>
+              <ul>
+                <li><strong>Efficient processing</strong> - Optimized algorithms handle large documents quickly</li>
+                <li><strong>Accurate highlighting</strong> - Precise identification of additions, deletions, and unchanged content</li>
+                <li><strong>Real-time analysis</strong> - Automatic comparison as you type with debouncing for performance</li>
+                <li><strong>Client-side processing</strong> - Your data never leaves your browser, ensuring privacy</li>
+                <li><strong>Comprehensive metrics</strong> - Detailed statistics help quantify differences</li>
+              </ul>
+            </section>
+          </article>
           
-          <div className={styles.faqSection}>
+          <section className={styles.faqSection}>
             <h2>Frequently Asked Questions</h2>
             
-            <div className={styles.faqItem}>
-              <div className={styles.faqQuestion}>What&apos;s the difference between the comparison methods?</div>
-              <p>Line-level compares whole lines, word-level compares individual words within lines, and character-level shows exact character differences. Choose based on your needs - line-level is best for code, word-level for documents, and character-level for precise analysis.</p>
-            </div>
+            <article className={styles.faqItem}>
+              <div className={styles.faqQuestion}>What&apos;s the maximum file size I can compare?</div>
+              <p>You can compare texts up to 100,000 characters each (about 15-20 pages). For larger files, consider splitting them into smaller sections. Performance may vary based on your device capabilities.</p>
+            </article>
             
-            <div className={styles.faqItem}>
-              <div className={styles.faqQuestion}>How is the similarity percentage calculated?</div>
-              <p>The similarity percentage is based on the ratio of matching content to total content. At line-level it compares lines, at word-level it compares words, and at character-level it compares individual characters.</p>
-            </div>
+            <article className={styles.faqItem}>
+              <div className={styles.faqQuestion}>Can I compare files in different formats (like PDF or Word)?</div>
+              <p>This tool works with plain text only. For comparing formatted documents, you&apos;ll need to first extract the text content from those files before comparing them here.</p>
+            </article>
             
-            <div className={styles.faqItem}>
-              <div className={styles.faqQuestion}>Can I compare files larger than what fits in the text boxes?</div>
-              <p>The tool can handle reasonably large texts (up to about 100,000 characters per box). For very large files, we recommend splitting them into smaller chunks or using specialized desktop diff tools.</p>
-            </div>
+            <article className={styles.faqItem}>
+              <div className={styles.faqQuestion}>Does the tool support syntax highlighting for code comparison?</div>
+              <p>While the tool doesn&apos;t provide full syntax highlighting, it works exceptionally well for code comparison by clearly showing additions and deletions. The character-level diff is particularly useful for precise code change analysis.</p>
+            </article>
             
-            <div className={styles.faqItem}>
-              <div className={styles.faqQuestion}>Does the tool store my text?</div>
-              <p>No, all processing happens in your browser. We never send your text to our servers, ensuring complete privacy for your content.</p>
-            </div>
-            
-            <div className={styles.faqItem}>
-              <div className={styles.faqQuestion}>Can I download the diff results?</div>
-              <p>You can copy the results (with formatting) to your clipboard, or use your browser&apos;s print function to save as PDF. We may add export options in future versions.</p>
-            </div>
-          </div>
+            <article className={styles.faqItem}>
+              <div className={styles.faqQuestion}>How accurate is the similarity percentage?</div>
+              <p>The similarity percentage is calculated based on the amount of unchanged content relative to the total content. It provides a good estimate of overall similarity, but the highlighted differences give you the precise changes.</p>
+            </article>
+
+            <article className={styles.faqItem}>
+              <div className={styles.faqQuestion}>Can I save or export the comparison results?</div>
+              <p>You can copy the results (with highlighting) to your clipboard using standard browser commands (Ctrl+C/Cmd+C). For persistent storage, you would need to paste the results into another application.</p>
+            </article>
+          </section>
         </div>
         
         <div>
