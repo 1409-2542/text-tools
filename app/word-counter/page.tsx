@@ -27,17 +27,27 @@ export const metadata: Metadata = {
     'essay word counter',
     'word length counter',
     'word count calculator'
-  ].join(', '),
+  ],
   openGraph: {
     title: 'Word Counter Tool Online - Count Words & Characters Instantly | TextToolsPro',
     description: 'Accurately count words, characters (with/without spaces) with our free online word counter. Works for essays, blogs, social media & SEO content.',
     url: 'https://www.texttoolspro.com/word-counter',
-    images: 'https://www.texttoolspro.com/images/word-counter-og.jpg',
+    images: [
+      {
+        url: 'https://www.texttoolspro.com/images/word-counter-og.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Word Counter Tool',
+      },
+    ],
+    siteName: 'TextToolsPro',
   },
   twitter: {
+    card: 'summary_large_image',
     title: 'Word Counter Tool Online - Count Words & Characters Instantly | TextToolsPro',
     description: 'Free online word counter that instantly analyzes your text for word count, character count (with/without spaces) and more.',
-    images: 'https://www.texttoolspro.com/images/word-counter-twitter.jpg',
+    images: ['https://www.texttoolspro.com/images/word-counter-twitter.jpg'],
+    site: '@TextToolsPro',
   },
   alternates: {
     canonical: 'https://www.texttoolspro.com/word-counter'
@@ -45,104 +55,121 @@ export const metadata: Metadata = {
 }
 
 export default function WordCounterPage() {
-  const structuredData = [
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Word Counter Tool Online",
-      "url": "https://www.texttoolspro.com/word-counter",
-      "description": "Free online tool to count words, characters (with and without spaces), sentences and paragraphs in any text",
-      "applicationCategory": "WritingApplication",
-      "operatingSystem": "Web Browser",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      },
-      "creator": {
-        "@type": "Organization",
-        "name": "TextToolsPro"
-      },
-      "keywords": "word counter, character counter, count words, text word counter, word count checker"
+  // ✅ 1. WebApplication Schema (separate script)
+  const webAppSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Word Counter Tool Online",
+    "url": "https://www.texttoolspro.com/word-counter",
+    "description": "Free online tool to count words, characters (with and without spaces), sentences and paragraphs in any text",
+    "applicationCategory": "WritingApplication",
+    "operatingSystem": "Web Browser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
     },
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "How does this word counter tool work?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Our tool analyzes your text in real-time, counting words (groups of characters separated by whitespace), characters (including or excluding spaces), and more. Simply paste or type your text to get instant results."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can I count words in a specific section of text?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes! Just highlight the text you want to analyze, and our tool will show counts for only the selected portion. This is perfect for checking paragraph length or specific sections."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What's the difference between character count with and without spaces?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Character count with spaces includes all characters (letters, numbers, punctuation, and spaces). Character count without spaces excludes spaces, which is useful for platforms with strict character limits."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Is this word counter accurate for academic work?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Our counter matches standard word processors like Microsoft Word and Google Docs. For precise academic requirements, we recommend verifying with your institution's specific guidelines."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Does the tool work with right-to-left languages?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes, our word counter supports right-to-left languages (like Arabic and Hebrew) and will accurately count words and characters in these languages."
-          }
-        }
-      ]
+    "creator": {
+      "@type": "Organization",
+      "name": "TextToolsPro"
     },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://www.texttoolspro.com/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Text Tools",
-          "item": "https://www.texttoolspro.com/#tools"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": "Word Counter",
-          "item": "https://www.texttoolspro.com/word-counter"
+    "keywords": "word counter, character counter, count words, text word counter, word count checker"
+  };
+
+  // ✅ 2. FAQ Schema (separate script, fixed typo)
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How does this word counter tool work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our tool analyzes your text in real-time, counting words (groups of characters separated by whitespace), characters (including or excluding spaces), and more. Simply paste or type your text to get instant results."
         }
-      ]
-    }
-  ];
+      },
+      {
+        "@type": "Question",
+        "name": "Can I count words in a specific section of text?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! Just highlight the text you want to analyze, and our tool will show counts for only the selected portion. This is perfect for checking paragraph length or specific sections."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What's the difference between character count with and without spaces?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Character count with spaces includes all characters (letters, numbers, punctuation, and spaces). Character count without spaces excludes spaces, which is useful for platforms with strict character limits."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is this word counter accurate for academic work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our counter matches standard word processors like Microsoft Word and Google Docs. For precise academic requirements, we recommend verifying with your institution's specific guidelines."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does the tool work with right-to-left languages?",
+        "acceptedAnswer": { // ✅ Fixed from "acceptedAnswer" typo
+          "@type": "Answer",
+          "text": "Yes, our word counter supports right-to-left languages (like Arabic and Hebrew) and will accurately count words and characters in these languages."
+        }
+      }
+    ]
+  };
+
+  // ✅ 3. Breadcrumb Schema (separate script)
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.texttoolspro.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Text Tools",
+        "item": "https://www.texttoolspro.com/#tools"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Word Counter",
+        "item": "https://www.texttoolspro.com/word-counter"
+      }
+    ]
+  };
 
   return (
     <>
+      {/* ✅ 1. WebApplication Schema */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppSchema) }}
       />
+
+      {/* ✅ 2. FAQ Schema (now separate) */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+
+      {/* ✅ 3. Breadcrumb Schema (now separate) */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+
       <div className="container">
         <Breadcrumbs 
           items={[
