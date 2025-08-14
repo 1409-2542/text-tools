@@ -5,7 +5,7 @@ import { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Text Diff Tool - Compare & Find Differences Online | TextToolsPro',
   description: 'Free online tool to compare two texts and highlight differences with precision. Perfect for code review, document version control, and content analysis. Supports character, word, and line comparison.',
-  keywords: [
+  keywords: [ // Changed from .join(',') to array format
     'text diff',
     'compare text online',
     'difference checker',
@@ -17,8 +17,11 @@ export const metadata: Metadata = {
     'find text differences',
     'content comparison',
     'side by side text comparison',
-    'text change detector'
-  ].join(', '),
+    'text change detector',
+    'text revision tool',
+    'string comparison',
+    'delta viewer'
+  ],
   openGraph: {
     title: 'Text Diff Tool - Compare & Find Differences Online | TextToolsPro',
     description: 'Free online tool to compare two texts and highlight differences with precision. Perfect for code review, document version control, and content analysis.',
@@ -39,14 +42,8 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Text Diff Tool - Compare & Find Differences Online | TextToolsPro',
     description: 'Free online tool to compare two texts and highlight differences with precision. Perfect for code review, document version control, and content analysis.',
-    images: [
-      {
-        url: 'https://www.texttoolspro.com/images/text-diff-twitter.jpg',
-        width: 1200,
-        height: 628,
-        alt: 'Text Diff Tool - Compare and find differences between texts'
-      }
-    ]
+    images: ['https://www.texttoolspro.com/images/text-diff-twitter.jpg'], // Simplified to URL string
+    creator: '@TextToolsPro' // Added if you have a Twitter handle
   },
   alternates: {
     canonical: 'https://www.texttoolspro.com/text-diff'
@@ -67,7 +64,8 @@ export const metadata: Metadata = {
 }
 
 export default function TextDiffPage() {
-  const structuredData = {
+  // ✅ 1. WebApplication Schema (separate)
+  const webAppSchema = {
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "Text Diff Tool",
@@ -91,92 +89,96 @@ export default function TextDiffPage() {
       "reviewCount": "215",
       "bestRating": "5",
       "worstRating": "1"
-    },
-    "potentialAction": {
-      "@type": "HowTo",
-      "name": "How to Use the Text Diff Tool",
-      "description": "Step-by-step guide to compare texts and find differences",
-      "step": [
-        {
-          "@type": "HowToStep",
-          "text": "Enter your original text in the left panel",
-          "name": "Input original text"
-        },
-        {
-          "@type": "HowToStep",
-          "text": "Enter your modified text in the right panel",
-          "name": "Input modified text"
-        },
-        {
-          "@type": "HowToStep",
-          "text": "Select comparison mode (character, word, or line level)",
-          "name": "Choose comparison mode"
-        },
-        {
-          "@type": "HowToStep",
-          "text": "Set additional options (ignore case, ignore whitespace)",
-          "name": "Configure options"
-        },
-        {
-          "@type": "HowToStep",
-          "text": "View the highlighted differences and statistics",
-          "name": "Analyze results"
-        }
-      ]
-    },
-    "mainEntity": {
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What types of text can I compare with this tool?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "You can compare any plain text including code, documents, essays, configuration files, JSON, XML, CSV data, and more. The tool works with all languages and character sets."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What's the difference between character, word, and line comparison modes?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Character mode highlights individual character changes, word mode shows whole word differences, and line mode compares entire lines. Choose character for precise changes, word for natural language, and line for structured documents."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Is there a limit to how much text I can compare?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "The tool can compare documents up to 100,000 characters each (about 15-20 pages). For larger files, consider splitting them into smaller sections."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Does the tool store my compared texts?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "No, all processing happens in your browser. We never send your text to our servers, ensuring complete privacy for your sensitive documents."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can I compare more than two documents at once?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "The current version compares two documents at a time. For comparing multiple versions, you can perform pairwise comparisons sequentially."
-          }
-        }
-      ]
     }
-  }
+  };
+
+  // ✅ 2. HowTo Schema (separate)
+  const howToSchema = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Use the Text Diff Tool",
+    "description": "Step-by-step guide to compare texts and find differences",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "text": "Enter your original text in the left panel",
+        "name": "Input original text"
+      },
+      {
+        "@type": "HowToStep",
+        "text": "Enter your modified text in the right panel",
+        "name": "Input modified text"
+      },
+      {
+        "@type": "HowToStep",
+        "text": "Select comparison mode (character, word, or line level)",
+        "name": "Choose comparison mode"
+      },
+      {
+        "@type": "HowToStep",
+        "text": "Set additional options (ignore case, ignore whitespace)",
+        "name": "Configure options"
+      },
+      {
+        "@type": "HowToStep",
+        "text": "View the highlighted differences and statistics",
+        "name": "Analyze results"
+      }
+    ]
+  };
+
+  // ✅ 3. FAQ Schema (separate)
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What types of text can I compare with this tool?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You can compare any plain text including code, documents, essays, configuration files, JSON, XML, CSV data, and more. The tool works with all languages and character sets."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What's the difference between character, word, and line comparison modes?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Character mode highlights individual character changes, word mode shows whole word differences, and line mode compares entire lines. Choose character for precise changes, word for natural language, and line for structured documents."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is there a limit to how much text I can compare?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The tool can compare documents up to 100,000 characters each (about 15-20 pages). For larger files, consider splitting them into smaller sections."
+        }
+      }
+    ]
+  };
 
   return (
     <>
+      {/* ✅ 1. WebApplication Schema */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppSchema) }}
       />
+      
+      {/* ✅ 2. HowTo Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
+      />
+      
+      {/* ✅ 3. FAQ Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+
       <div className="container">
         <Breadcrumbs 
           items={[
@@ -187,11 +189,16 @@ export default function TextDiffPage() {
         />
       </div>
       <TextDiffTool />
-      {/* SEO hidden synonyms */}
+      
+      {/* SEO hidden synonyms - improved */}
       <div hidden aria-hidden="true">
-        Also known as: text comparison tool, difference checker, document diff, 
-        text version comparator, online diff checker, text change detector, 
-        side-by-side text comparison, content comparison tool, text revision analyzer
+        <h2>Text Diff Tool Synonyms</h2>
+        <p>
+          Also known as: text comparison tool, difference checker, document diff, 
+          text version comparator, online diff checker, text change detector, 
+          side-by-side text comparison, content comparison tool, text revision analyzer,
+          delta viewer, string comparator, text variance tool
+        </p>
       </div>
     </>
   )
