@@ -61,7 +61,6 @@ export default function RemoveDuplicateLinesTool() {
         continue
       }
       
-      // Normalize line based on options
       let normalizedLine = line
       if (options.ignoreCase) normalizedLine = normalizedLine.toLowerCase()
       if (options.ignoreWhitespace) normalizedLine = normalizedLine.trim()
