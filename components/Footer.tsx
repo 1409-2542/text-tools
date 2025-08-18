@@ -20,7 +20,7 @@ export default function Footer() {
             <h3>Resources</h3>
             <ul>
               <li><Link href="/blog">Blog</Link></li>
-              <li><Link href="/faq">FAQ</Link></li>
+              <li>FAQ</li>
             </ul>
           </div>
           <div className={styles.footerColumn}>
