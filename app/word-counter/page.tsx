@@ -76,54 +76,6 @@ export default function WordCounterPage() {
     "keywords": "word counter, character counter, count words, text word counter, word count checker"
   };
 
-  // ✅ 2. FAQ Schema (separate script, fixed typo)
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "How does this word counter tool work?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Our tool analyzes your text in real-time, counting words (groups of characters separated by whitespace), characters (including or excluding spaces), and more. Simply paste or type your text to get instant results."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can I count words in a specific section of text?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes! Just highlight the text you want to analyze, and our tool will show counts for only the selected portion. This is perfect for checking paragraph length or specific sections."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What's the difference between character count with and without spaces?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Character count with spaces includes all characters (letters, numbers, punctuation, and spaces). Character count without spaces excludes spaces, which is useful for platforms with strict character limits."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Is this word counter accurate for academic work?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Our counter matches standard word processors like Microsoft Word and Google Docs. For precise academic requirements, we recommend verifying with your institution's specific guidelines."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Does the tool work with right-to-left languages?",
-        "acceptedAnswer": { // ✅ Fixed from "acceptedAnswer" typo
-          "@type": "Answer",
-          "text": "Yes, our word counter supports right-to-left languages (like Arabic and Hebrew) and will accurately count words and characters in these languages."
-        }
-      }
-    ]
-  };
-
   // ✅ 3. Breadcrumb Schema (separate script)
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -156,12 +108,6 @@ export default function WordCounterPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppSchema) }}
-      />
-
-      {/* ✅ 2. FAQ Schema (now separate) */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       {/* ✅ 3. Breadcrumb Schema (now separate) */}
