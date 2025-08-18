@@ -247,11 +247,6 @@ export default function TextSorterTool() {
               <div className={styles.faqQuestion}>Does the tool store my text?</div>
               <p>No, all processing happens in your browser. We never send your text to our servers, ensuring complete privacy for your data.</p>
             </div>
-            
-            <div className={styles.faqItem}>
-              <div className={styles.faqQuestion}>Can I sort by other criteria, like line length?</div>
-              <p>Currently, this tool only supports alphabetical sorting. For more advanced sorting options, check out our <a href="/advanced-text-sorter">Advanced Text Sorter</a> tool.</p>
-            </div>
           </div>
         </div>
         
