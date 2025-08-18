@@ -275,7 +275,7 @@ This text hastoo many linebreaks that makeit hard to read.</div>
             
             <div className={styles.faqItem}>
               <div className={styles.faqQuestion}>Can I remove line breaks but keep lists intact?</div>
-              <p>For simple lists, using &quot;Replace with comma&quot; can work well.
+              <p>For simple lists, using &quot;Replace with comma&quot; can work well.</p>
             </div>
             
             <div className={styles.faqItem}>

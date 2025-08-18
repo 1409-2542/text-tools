@@ -24,6 +24,7 @@ export default function MarkdownToHtmlTool() {
   const convertMarkdownToHTML = useCallback((markdownText: string) => {
     if (!markdownText.trim()) return ''
     
+    // Replace headers
     let htmlText = markdownText
       .replace(/^# (.*$)/gm, '<h1>$1</h1>')
       .replace(/^## (.*$)/gm, '<h2>$1</h2>')
@@ -243,7 +244,12 @@ export default function MarkdownToHtmlTool() {
               <div className={styles.faqQuestion}>Does this tool support GitHub Flavored Markdown?</div>
               <p>Yes, our converter supports GitHub Flavored Markdown (GFM) including features like tables, task lists, and strikethrough.</p>
             </div>
-                  
+            
+            <div className={styles.faqItem}>
+              <div className={styles.faqQuestion}>Can I convert HTML back to Markdown?</div>
+              <p>We have a separate <a href="/tools/html-to-markdown">HTML to Markdown converter</a> tool for that purpose.</p>
+            </div>
+            
             <div className={styles.faqItem}>
               <div className={styles.faqQuestion}>Is there a limit to how much Markdown I can convert?</div>
               <p>You can convert up to 100,000 characters at once, which is approximately 15,000-20,000 words. For most users, this is more than sufficient.</p>
@@ -252,11 +258,6 @@ export default function MarkdownToHtmlTool() {
             <div className={styles.faqItem}>
               <div className={styles.faqQuestion}>Does the tool store my Markdown or HTML?</div>
               <p>No, all processing happens in your browser. We never send your text to our servers, ensuring complete privacy for your content.</p>
-            </div>
-            
-            <div className={styles.faqItem}>
-              <div className={styles.faqQuestion}>Can I use this tool programmatically via API?</div>
-              <p>We offer a <a href="/api/markdown-to-html">Markdown to HTML API</a> for developers who need to integrate this functionality into their applications.</p>
             </div>
           </div>
         </div>
