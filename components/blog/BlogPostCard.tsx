@@ -28,7 +28,7 @@ export default function BlogPostCard({
           </Link>
         </h2>
         <p className={styles.postDescription}>{description}</p>
-        <Link href={`/blog/${href}`} className={styles.readMore}>
+        <Link href={`${href}`} className={styles.readMore}>
           Read More &rarr;
         </Link>
       </div>

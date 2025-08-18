@@ -195,7 +195,7 @@ Orange`}</pre>
             <h3>Special Characters Cause Issues</h3>
             <p>Characters like !@#$ sort before letters. To fix:</p>
             <ul>
-              <li>Remove special characters first with our <a className="atutorial" href="/text-cleaner">Text Cleaner tool</a></li>
+              <li>Remove special characters first</li>
               <li>Or use find/replace to remove them</li>
             </ul>
             
