@@ -249,7 +249,7 @@ export default function TextSorterTool() {
             </div>
           </div>
         </div>
-        
+
         <div>
           <ToolSidebar />
         </div>

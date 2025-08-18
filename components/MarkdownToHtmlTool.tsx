@@ -24,7 +24,6 @@ export default function MarkdownToHtmlTool() {
   const convertMarkdownToHTML = useCallback((markdownText: string) => {
     if (!markdownText.trim()) return ''
     
-    // Replace headers
     let htmlText = markdownText
       .replace(/^# (.*$)/gm, '<h1>$1</h1>')
       .replace(/^## (.*$)/gm, '<h2>$1</h2>')
